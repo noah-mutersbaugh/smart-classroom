@@ -1,6 +1,6 @@
 <template>
   <div id="nav">
-    <img src="@/assets/gvsu_oneline_RGB_white_1024.png" />
+    <img alt="GVSU Logo" src="@/assets/gvsu_oneline_RGB_white_1024.png" />
     <div id="nav-wrapper">
       <div>
         <router-link to="/">Home</router-link> |

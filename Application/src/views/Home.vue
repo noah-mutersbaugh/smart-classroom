@@ -1,16 +1,19 @@
 <template>
-  <div class="Inventory">
+  <div class="home">
     <NavBar/>
-    <h1>This is an Inventory page</h1>
+    <Message msg="This is the home page"/>
   </div>
 </template>
 
 <script>
 // @ is an alias to /src
+import Message from '@/components/Message.vue'
 import NavBar from '@/components/NavBar.vue'
+
 export default {
-  name: 'Inventory',
+  name: 'Home',
   components: {
+    Message,
     NavBar
   }
 }
