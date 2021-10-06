@@ -1,17 +1,20 @@
 <template>
   <div class="Inventory">
     <NavBar/>
-    <h1>This is an Inventory page</h1>
+    <inventory-component/>
   </div>
 </template>
 
 <script>
 // @ is an alias to /src
 import NavBar from '@/components/NavBar.vue'
+import InventoryComponent from '@/components/InventoryComponent.vue'
+
 export default {
   name: 'Inventory',
   components: {
-    NavBar
+    NavBar,
+    InventoryComponent
   }
 }
 </script>
