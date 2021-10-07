@@ -4,7 +4,8 @@
     <div id="nav-wrapper">
       <div>
         <router-link to="/">Home</router-link> |
-        <router-link to="/inventory">Inventory</router-link>
+        <router-link to="/inventory">Inventory</router-link> |
+        <router-link to="/tech">Tech Specs</router-link>
       </div>
     </div>
   </div>
