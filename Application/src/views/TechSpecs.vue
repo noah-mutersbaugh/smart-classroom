@@ -1,20 +1,20 @@
 <template>
   <div class="Tech">
     <NavBar/>
-    <inventory-component/>
+    <accordion-component/>
   </div>
 </template>
 
 <script>
 // @ is an alias to /src
 import NavBar from '@/components/NavBar.vue'
-import InventoryComponent from '@/components/InventoryComponent.vue'
+import AccordionComponent from '@/components/AccordionComponent.vue'
 
 export default {
   name: 'Tech',
   components: {
     NavBar,
-    InventoryComponent
+    AccordionComponent,
   }
 }
 </script>
