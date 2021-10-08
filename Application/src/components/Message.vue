@@ -8,7 +8,10 @@
 export default {
   name: 'Message',
   props: {
-    msg: String
+    name: String,
+    number: integer,
+    etc: fasdf,
+    
   }
 }
 </script>

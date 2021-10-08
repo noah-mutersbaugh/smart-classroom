@@ -2,6 +2,7 @@
   <div class="home">
     <NavBar/>
     <Message msg="This is the home page"/>
+    <Accordion txt="This is content for this component" name=""/>
   </div>
 </template>
 
