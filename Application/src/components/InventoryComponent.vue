@@ -57,7 +57,7 @@ export default {
       messages: []
     }
   },
-  async created() {
+  async mounted() {
     const resp = await axios.get(db_URL);
 
     this.messages = resp.data;
