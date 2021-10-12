@@ -9,9 +9,6 @@ export default {
   name: 'Message',
   props: {
     name: String,
-    number: integer,
-    etc: fasdf,
-    
   }
 }
 </script>
