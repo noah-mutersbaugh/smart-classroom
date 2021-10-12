@@ -4,7 +4,12 @@
     <div id="nav-wrapper">
       <div>
         <router-link to="/">Home</router-link> |
-        <router-link to="/inventory">Inventory</router-link>
+        <router-link to="/inventory">Inventory</router-link> |
+        <router-link to="/tech-specs">Tech Specs</router-link> |
+        <router-link to="/tech-settings">Tech Settings</router-link> <br />
+        <router-link to="/faq">FAQ</router-link> |
+        <router-link to="/feedback">Feedback</router-link> |
+        <router-link to="/map">Map</router-link>
       </div>
     </div>
   </div>
@@ -33,7 +38,7 @@ img {
 }
 
 #nav-wrapper {
-    width: 50%;
+  width: 50%;
 }
 
 #nav a {
