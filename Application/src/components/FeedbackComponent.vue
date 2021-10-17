@@ -1,38 +1,5 @@
 <template>
   <div id="feedback">
-    <!-- <form>
-      <div class="form-group">
-        <label for="exampleInputEmail1"></label>
-        <input
-          type="email"
-          class="form-control"
-          id="exampleInputEmail1"
-          aria-describedby="emailHelp"
-          placeholder="Name"
-        />
-      </div>
-      <div class="form-group">
-        <label for="exampleInputEmail1"></label>
-        <input
-          type="email"
-          class="form-control"
-          id="exampleInputEmail1"
-          aria-describedby="emailHelp"
-          placeholder="Email"
-        />
-      </div>
-      <div class="form-group">
-        <label for="exampleInputPassword1"></label>
-        <input
-          type="password"
-          class="form-control"
-          id="exampleInputPassword1"
-          placeholder="Message"
-        />
-      </div>
-      <button type="submit" class="btn btn-primary">Submit</button>
-    </form> -->
-
     <iframe
       src="https://docs.google.com/forms/d/e/1FAIpQLSeCsmkfys0-P4hrOqYuRx8h8jSLtHbL24BLu7Zy-rZGPT3LyQ/viewform?embedded=true"
       width="640"

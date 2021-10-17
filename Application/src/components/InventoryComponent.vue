@@ -1,6 +1,6 @@
 <template>
   <div id="inv">
-    <h1>Classrooms and their Associated Technologies</h1>
+    <!-- <h1>Classrooms and their Associated Technologies</h1> -->
     <table id="invtable">
       <thead>
         <tr>

@@ -1,53 +1,42 @@
 <template>
-  <b-nav
-    id="nav"
-    class="d-flex flex-row justify-content-center navbar navbar-expand"
-  >
-    <button
-      class="navbar-toggler"
-      type="button"
-      data-toggle="collapse"
-      data-target="#navbarText"
-      aria-controls="navbarText"
-      aria-expanded="false"
-      aria-label="Toggle navigation"
-    >
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <b-nav-item to="/" exact exact-active-class="active">
-      <img alt="GVSU Logo" src="@/assets/gvsu_oneline_RGB_white_1024.png" />
-    </b-nav-item>
-    <div class="collapse navbar-collapse p-4" id="navbarText">
-      <ul class="navbar-nav mr-auto">
-        <b-nav-item to="/inventory" exact exact-active-class="active"
-          >Inventory</b-nav-item
-        >
-        <b-nav-item to="/tech-specs" exact exact-active-class="active"
-          >Tech Specs</b-nav-item
-        >
-        <b-nav-item to="/tech-settings" exact exact-active-class="active"
-          >Tech Settings</b-nav-item
-        >
-        <b-nav-item to="/faq" exact exact-active-class="active">FAQ</b-nav-item>
-        <b-nav-item to="/feedback" exact exact-active-class="active"
-          >Feedback</b-nav-item
-        >
-        <b-nav-item to="/map" exact exact-active-class="active">Map</b-nav-item>
-      </ul>
-    </div>
-  </b-nav>
-  <!-- </div> -->
+  <div>
+    <b-navbar id="header" toggleable="lg" type="dark">
+      <b-navbar-brand to="/" class="ms-5">
+        <img alt="GVSU Logo" src="@/assets/gvsu_oneline_RGB_white_1024.png" />
+      </b-navbar-brand>
+    </b-navbar>
+
+    <h1 class="ms-5">{{ msg }}</h1>
+
+    <b-navbar id="navigation" toggleable="sm"> 
+      <b-navbar-toggle target="nav-collapse" class="ms-5"></b-navbar-toggle>
+
+      <b-collapse id="nav-collapse" class="ms-5" is-nav>
+        <b-navbar-nav id="nav-list">
+          <b-nav-item to="/inventory">Inventory</b-nav-item>
+          <b-nav-item to="/tech-specs">Tech Specs</b-nav-item>
+          <b-nav-item to="/faq">FAQ</b-nav-item>
+          <b-nav-item to="/feedback">Feedback</b-nav-item>
+          <b-nav-item to="/tech-settings">Tech Settings</b-nav-item>
+          <b-nav-item to="/map">Map</b-nav-item>
+        </b-navbar-nav>
+      </b-collapse>
+    </b-navbar>
+  </div>
 </template>
 
 <script>
 export default {
   name: "NavBar",
+  props: {
+    msg: String,
+  }
 };
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-#nav {
+#header {
   background-color: #0065a4;
 }
 
@@ -57,5 +46,16 @@ export default {
 
 img {
   height: 2.5rem;
+}
+
+#navigation {
+    background: #f7f7f7;
+    border: 1px solid #CCC;
+    font-size: 1.2rem;
+    z-index: 9999;
+}
+
+#nav-list :nth-child(1) > a{
+  padding-left: 0;
 }
 </style>
