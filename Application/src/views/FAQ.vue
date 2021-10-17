@@ -1,7 +1,9 @@
 <template>
   <div class="home">
     <NavBar/>
-    <Message msg="This is the FAQ page"/>
+    <Message msg="FAQ page"/>
+    <FAQComponent/>
+    
     <Accordion txt="This is content for this component" name=""/>
   </div>
 </template>
@@ -10,12 +12,13 @@
 // @ is an alias to /src
 import Message from '@/components/Message.vue'
 import NavBar from '@/components/NavBar.vue'
-
+import FAQComponent from '@/components/FAQComponent.vue'
 export default {
   name: 'Home',
   components: {
     Message,
-    NavBar
+    NavBar,
+    FAQComponent
   }
 }
 </script>
