@@ -9,13 +9,23 @@ var corsOptions = {
 
 dbserver.client.connect(err => {
     if (err) throw err;
-    const collection = dbserver.client.db("smartclassroom").collection("classrooms");
+    const roomcollection = dbserver.client.db("smartclassroom").collection("classrooms");
     
     app.use(cors(corsOptions));
     app.options('/get/classrooms', cors());
 
     app.get('/get/classrooms', (req, res) => {
-        collection.find({}).toArray(function(err, result) {
+        roomcollection.find({}).toArray(function(err, result) {
+            if (err) throw err;
+            console.log(result);
+            res.header("Access-Control-Allow-Origin", "*");
+            res.json(result);
+        });
+    });
+
+    const techcollection = dbserver.client.db("smartclassroom").collection("technology");
+    app.get('/get/tech', (req, res) => {
+        techcollection.find({}).toArray(function(err, result) {
             if (err) throw err;
             console.log(result);
             res.header("Access-Control-Allow-Origin", "*");
