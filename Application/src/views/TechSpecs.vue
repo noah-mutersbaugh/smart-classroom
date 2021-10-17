@@ -1,6 +1,6 @@
 <template>
   <div class="d-flex flex-column">
-    <NavBar/>
+    <NavBar msg="Technology Specifications"/>
     <accordion-component/>
   </div>
 </template>
