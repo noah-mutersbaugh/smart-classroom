@@ -1,6 +1,6 @@
 <template>
   <div id="feedback">
-    <form>
+    <!-- <form>
       <div class="form-group">
         <label for="exampleInputEmail1"></label>
         <input
@@ -31,7 +31,17 @@
         />
       </div>
       <button type="submit" class="btn btn-primary">Submit</button>
-    </form>
+    </form> -->
+
+    <iframe
+      src="https://docs.google.com/forms/d/e/1FAIpQLSeCsmkfys0-P4hrOqYuRx8h8jSLtHbL24BLu7Zy-rZGPT3LyQ/viewform?embedded=true"
+      width="640"
+      height="736"
+      frameborder="0"
+      marginheight="0"
+      marginwidth="0"
+      >Loading…</iframe
+    >
   </div>
 </template>
 

@@ -87,7 +87,7 @@ ul {
   height: 100%;
 }
 li {
-      display: list-item;
+      /* display: list-item; */
 			padding: .325em 0;
 			line-height: 1.0;
 			margin: 0 0;
@@ -112,6 +112,7 @@ table > tfoot > tr > td {
 }
 table > tbody > tr {
   text-align: left;
+  font-size: 0.75rem;
 }
 table > tbody > tr:nth-child(odd) > td {
 	background-color: #f9f9f9;
@@ -128,5 +129,8 @@ table > tbody > tr > th {
 }
 a {
   color: #42b983;
+}
+#invtable > tbody {
+  margin: 2rem;
 }
 </style>

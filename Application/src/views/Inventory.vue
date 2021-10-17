@@ -1,5 +1,5 @@
 <template>
-  <div class="Inventory">
+  <div class="d-flex flex-column">
     <NavBar/>
     <inventory-component/>
   </div>

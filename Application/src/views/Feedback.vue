@@ -1,5 +1,5 @@
 <template>
-  <div class="home">
+  <div class="d-flex flex-column">
     <NavBar/>
     <Message msg="This is the feedback page"/>
     <Feedback/>

@@ -1,5 +1,5 @@
 <template>
-  <div class="Tech">
+  <div class="d-flex flex-column">
     <NavBar/>
     <accordion-component/>
   </div>
