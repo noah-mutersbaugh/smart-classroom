@@ -76,13 +76,11 @@ export default {
 
     this.messages = resp.data;
     this.items = resp.data;
-    console.log(this.messages);
   },
 };
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
-<<<<<<< HEAD
 <style scoped>
 #inv {
   font-size: 0.8rem;
@@ -91,24 +89,5 @@ export default {
 thead {
   background-color: #0065a4;
   color: white;
-=======
-
-
-table > tbody > tr:nth-child(odd) > td {
-	background-color: #f9f9f9;
-}
-table > thead > tr > th,
-table > tbody > tr > th {
-	padding: .85em;
-	vertical-align: bottom;
-	text-align: left;
-	border-bottom: 2px solid #dddddd;
-	border-top: 0;
-	background: #0065a4;
-	color: #FFF;
-}
-a {
-  color: #42b983;
->>>>>>> webdev_mohammad
 }
 </style>

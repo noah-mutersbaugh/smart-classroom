@@ -1,10 +1,7 @@
 <template>
   <div class="Map">
-    <NavBar/>
-    <Message msg="This is the map page"/>
+    <NavBar msg="Map"/>
     <MapComponent/>
-    
-    <Accordion txt="This is content for this component" name=""/>
   </div>
 </template>
 
@@ -12,10 +9,10 @@
 // @ is an alias to /src
 import NavBar from '@/components/NavBar.vue'
 import MapComponent from '@/components/MapComponent.vue'
+
 export default {
   name: 'Map',
   components: {
-    Message,
     NavBar,
     MapComponent
   }

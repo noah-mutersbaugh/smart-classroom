@@ -15,10 +15,10 @@
         <b-navbar-nav id="nav-list">
           <b-nav-item to="/inventory">Inventory</b-nav-item>
           <b-nav-item to="/tech-specs">Tech Specs</b-nav-item>
-          <b-nav-item to="/faq">FAQ</b-nav-item>
-          <b-nav-item to="/feedback">Feedback</b-nav-item>
           <b-nav-item to="/tech-settings">Tech Settings</b-nav-item>
           <b-nav-item to="/map">Map</b-nav-item>
+          <b-nav-item to="/faq">FAQ</b-nav-item>
+          <!-- <b-nav-item to="/feedback">Feedback</b-nav-item> -->
         </b-navbar-nav>
       </b-collapse>
     </b-navbar>
