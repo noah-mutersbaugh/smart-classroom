@@ -1,6 +1,6 @@
 <template>
-  <div class="Inventory">
-    <NavBar/>
+  <div class="d-flex flex-column">
+    <NavBar msg="Classrooms and their Associated Technologies"/>
     <inventory-component/>
   </div>
 </template>

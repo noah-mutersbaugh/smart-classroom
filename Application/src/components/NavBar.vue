@@ -1,52 +1,65 @@
 <template>
-  <div id="nav">
-    <img alt="GVSU Logo" src="@/assets/gvsu_oneline_RGB_white_1024.png" />
-    <div id="nav-wrapper">
-      <div>
-        <router-link to="/">Home</router-link> |
-        <router-link to="/inventory">Inventory</router-link> |
-        <router-link to="/tech-specs">Tech Specs</router-link> |
-        <router-link to="/tech-settings">Tech Settings</router-link> <br />
-        <router-link to="/faq">FAQ</router-link> |
-        <router-link to="/feedback">Feedback</router-link> |
-        <router-link to="/map">Map</router-link>
-      </div>
-    </div>
+  <div>
+    <b-navbar id="header" toggleable="lg" type="dark">
+      <b-navbar-brand to="/" class="ms-5">
+        <img alt="GVSU Logo" src="@/assets/gvsu_oneline_RGB_white_1024.png" />
+      </b-navbar-brand>
+    </b-navbar>
+
+    <h1 class="ms-5">{{ msg }}</h1>
+
+    <b-navbar id="navigation" toggleable="md"> 
+      <b-navbar-toggle target="nav-collapse" class="ms-5"></b-navbar-toggle>
+
+      <b-collapse id="nav-collapse" class="ms-5" is-nav>
+        <b-navbar-nav id="nav-list">
+          <b-nav-item to="/inventory">Inventory</b-nav-item>
+          <b-nav-item to="/tech-specs">Tech Specs</b-nav-item>
+          <b-nav-item to="/faq">FAQ</b-nav-item>
+          <b-nav-item to="/feedback">Feedback</b-nav-item>
+          <b-nav-item to="/tech-settings">Tech Settings</b-nav-item>
+          <b-nav-item to="/map">Map</b-nav-item>
+        </b-navbar-nav>
+      </b-collapse>
+    </b-navbar>
   </div>
 </template>
 
 <script>
 export default {
   name: "NavBar",
+  props: {
+    msg: String,
+  }
 };
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-#nav {
-  /* height: 2rem; */
-  display: flex;
-  flex-flow: row nowrap;
-  justify-content: space-between;
-  align-items: center;
+#header {
   background-color: #0065a4;
-  padding: 30px;
+}
+
+.nav-link {
+  color: #f9f9f9;
 }
 
 img {
   height: 2.5rem;
 }
 
-#nav-wrapper {
-  width: 50%;
+#navigation {
+    background: #f7f7f7;
+    border: 1px solid #CCC;
+    font-size: 1.2rem;
+    z-index: 9999;
 }
 
-#nav a {
-  font-weight: bold;
-  color: #000000;
+#nav-list :nth-child(1) > a{
+  padding-left: 0;
 }
 
-#nav a.router-link-exact-active {
-  color: #ffffff;
+.navbar-expand-md .navbar-nav .nav-link{
+  padding-right: 1rem;
 }
 </style>

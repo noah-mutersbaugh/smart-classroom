@@ -1,21 +1,20 @@
 <template>
-  <div class="home">
-    <NavBar/>
-    <Message msg="This is the page for tech settings"/>
-    <Accordion txt="This is content for this component" name=""/>
+  <div class="d-flex flex-column">
+    <NavBar msg="Technology Settings"/>
+    <tech-settings-table></tech-settings-table>
   </div>
 </template>
 
 <script>
 // @ is an alias to /src
-import Message from '@/components/Message.vue'
 import NavBar from '@/components/NavBar.vue'
+import TechSettingsTable from '../components/TechSettingsTable.vue'
 
 export default {
   name: 'Home',
   components: {
-    Message,
-    NavBar
+    NavBar,
+    TechSettingsTable
   }
 }
 </script>
