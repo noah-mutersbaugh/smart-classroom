@@ -1,7 +1,7 @@
 <template>
-  <div class="home">
+  <div class="TechSetting">
     <NavBar/>
-    <Message msg=" tech settings"/>
+    <Message msg=" Tech settings"/>
     <Accordion txt="This is content for this component" name=""/>
     <SettingsComponent/>
   </div>
@@ -14,7 +14,7 @@ import NavBar from '@/components/NavBar.vue'
 import SettingsComponent from '@/components/SettingsComponent.vue'
 
 export default {
-  name: 'Home',
+  name: 'TechSettings',
   components: {
     Message,
     NavBar,

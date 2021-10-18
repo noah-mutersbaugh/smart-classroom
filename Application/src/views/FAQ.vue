@@ -1,5 +1,5 @@
 <template>
-  <div class="home">
+  <div class="FAQ">
     <NavBar/>
     <Message msg="FAQ page"/>
     <FAQComponent/>
@@ -14,7 +14,7 @@ import Message from '@/components/Message.vue'
 import NavBar from '@/components/NavBar.vue'
 import FAQComponent from '@/components/FAQComponent.vue'
 export default {
-  name: 'Home',
+  name: 'FAQ',
   components: {
     Message,
     NavBar,

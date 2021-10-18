@@ -5,104 +5,56 @@
 //vid output settings
 //accordian will work best here
 ask about this stuff, what setting are we talking about 
+add button for the settings remove accordion
 -->
 <template>
-<div>
-    <div class="accordion" role="tablist">
-    <b-card v-for="accordion in accordions" v-bind:key="accordion.num" no-body class="mb-1">
-      <b-card-header header-tag="header" class="p-1" role="tab">
-        <b-button class="accordion-button" block v-b-toggle="accordion.num" variant="info">{{ accordion.title }}</b-button>
-      </b-card-header>
-      <b-collapse v-bind:id="accordion.num" accordion="my-accordion" role="tabpanel">
-        <b-card-body>
-          <b-card-text class="accordion-text">{{ accordion.text }}</b-card-text>
-        </b-card-body>
-      </b-collapse>
-    </b-card>
-  </div>
-</div>
+   <div class = "container">
+       <div class="row">
+           <div class= col-md-10>
+               <button class ="btn btn-default"> Mic settings </button>
+               <button class ="btn btn-default"> projector Settings </button>
+               <button class ="btn btn-default"> Camera Settings </button>
+               <button class ="btn btn-default"> Video output </button>
+               <button class ="btn btn-default"> Record Settings </button>
+
+               <!--<a class="btn-default" href="#" >Mic Settings</a>
+                 input class="btn btn-default" type="button" value="input"
+               input class="btn btn-default" type="button" value="submit"-->
+           </div>
+       </div>
+    </div>
+
 </template>
 
 <script>
-import Vue from 'vue'
-import bootstrapVue from 'bootstrap-vue'
+import Vue from 'vue';
+import bootstrapVue from 'bootstrap-vue';
+//import Button from '../views/Button.vue';
 
-Vue.use(bootstrapVue)
 
+
+Vue.use(bootstrapVue);
 export default {
-    data: function() {
-        return{
-            accordions: [
-                {
-                    num: 'accordion-1',
-                    title: 'Record Settings/vid output settings',
-                    text: 'what settingssetting '
-                },
-                {
-                    num: 'accordion-2',
-                    title: 'Projector settings',
-                    text: 'Epson PowerLite L510U'
-                },
-                {
-                    num: 'accordion-3',
-                    title: 'Microphones Settings',
-                    text: 'what Mic settings'
-                },
-                {
-                    num: 'accordion-4',
-                    title: 'Record Settings',
-                    text: 'What record settings'
-                      
-                },
-            ]
-        };
-    },
-}
+  name: "button",
+  props: {
+    title: String,
+    body: String,
+    link: String,
+    link_desc: String,
+  },
+};
+
 </script>
-<style>
-:root {
-    --fontSizeBase: 14.5px;
-    --lgWidth: 1280px;
-    --smWidth: 800px;
-    --mdWidth: 1000px;
-    --maxWidth: 1366px;
-    --fontsize: 17px/var(--fontSizeBase) * 100%;
-}
-.mb-1 {
-    padding: .625em;
-}
-.accordion-text {
-    white-space: pre;
-    text-align: left;
-    padding: .625em;
-}
-.p-1 {
-    display: block;
-    background: #F5F5F5;
-    padding: .625em;
-    color: #000;
-    text-align: left;
-    word-break: break-word;
-    font-family: "lato",sans-serif;
-    letter-spacing: 1 / var(--fontSizeBase) * .5px + 0em;
-    font-size: 15.5px;
-    line-height: 1.75;
-}
-.accordion-button {
-    border: 1px solid #F5F5F5;
-    background: #F5F5F5;
-    margin-bottom: 1em;
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    word-break: break-word;
-    color: #232323;
-    line-height: 1.75;
-    width: 100%;
-    text-align: left;
-}
-.accordion-button:focus {
-    outline: #0065A4 solid 3px !important;
-    outline-offset: 6px;
-}
+
+<style scoped>
+ button {
+    display: flex;
+  flex-flow: row nowrap;
+  justify-content: center;
+  align-items: center;
+ background-color: #088dda;
+  padding: 30px 700px;
+    }
+     
 </style>
+

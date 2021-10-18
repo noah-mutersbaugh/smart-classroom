@@ -66,53 +66,8 @@ export default {
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
-<style scoped>
-h1 {
-  font-family: "EB Garamond",serif;
-  font-weight: normal;
-  text-transform: none;
-  letter-spacing: .0144827586em;
-  font-size: 289.6551724138%;
-  padding-top: 0;
-  margin-bottom: .3452380952em;
-  color: #000;
-}
-h3 {
-  margin: 40px 0 0;
-}
-ul {
-  list-style-type: circle;
-  padding: 0 0;
-  margin: 0 0 1em 0;
-  height: 100%;
-}
-li {
-      display: list-item;
-			padding: .325em 0;
-			line-height: 1.0;
-			margin: 0 0;
-      vertical-align: top;
-}
 
-table {
-	width: 100%;
-	margin-bottom: 20px;
-	max-width: 100%;
-	background-color: transparent;
-	border-collapse: collapse;
-	border-spacing: 0;
-	margin-bottom: 1em;
-}
-table > thead > tr > td,
-table > tbody > tr > td,
-table > tfoot > tr > td {
-	padding: .85em;
-	vertical-align: top;
-	border-top: 1px solid #dddddd;
-}
-table > tbody > tr {
-  text-align: left;
-}
+
 table > tbody > tr:nth-child(odd) > td {
 	background-color: #f9f9f9;
 }

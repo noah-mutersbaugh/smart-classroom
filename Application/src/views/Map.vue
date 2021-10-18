@@ -1,5 +1,5 @@
 <template>
-  <div class="home">
+  <div class="Map">
     <NavBar/>
     <Message msg="This is the map page"/>
     <MapComponent/>
@@ -14,7 +14,7 @@ import Message from '@/components/Message.vue'
 import NavBar from '@/components/NavBar.vue'
 import MapComponent from '@/components/MapComponent.vue'
 export default {
-  name: 'Home',
+  name: 'Map',
   components: {
     Message,
     NavBar,

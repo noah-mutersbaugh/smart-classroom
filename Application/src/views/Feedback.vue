@@ -1,5 +1,5 @@
 <template>
-  <div class="home">
+  <div class="Feedback">
     <NavBar/>
     <Message msg="This is the feedback page"/>
     <Feedback/>
@@ -14,7 +14,7 @@ import NavBar from '@/components/NavBar.vue'
 import Feedback from '@/components/FeedbackComponent.vue'
 
 export default {
-  name: 'Home',
+  name: 'Feedback',
   components: {
     Message,
     NavBar,
