@@ -11,7 +11,7 @@ import NavBar from '@/components/NavBar.vue'
 import Feedback from '@/components/FeedbackComponent.vue'
 
 export default {
-  name: 'Home',
+  name: 'Feedback',
   components: {
     NavBar,
     Feedback

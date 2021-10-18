@@ -1,6 +1,9 @@
 <template>
-  <div class="d-flex flex-column">
-    <NavBar msg="Location of Smart Classrooms"/>
+  <div class="Map">
+    <NavBar/>
+    <Message msg="This is the map page"/>
+    <MapComponent/>
+    
     <Accordion txt="This is content for this component" name=""/>
   </div>
 </template>
@@ -8,11 +11,13 @@
 <script>
 // @ is an alias to /src
 import NavBar from '@/components/NavBar.vue'
-
+import MapComponent from '@/components/MapComponent.vue'
 export default {
-  name: 'Home',
+  name: 'Map',
   components: {
-    NavBar
+    Message,
+    NavBar,
+    MapComponent
   }
 }
 </script>

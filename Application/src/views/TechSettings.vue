@@ -11,7 +11,7 @@ import NavBar from '@/components/NavBar.vue'
 import TechSettingsTable from '../components/TechSettingsTable.vue'
 
 export default {
-  name: 'Home',
+  name: 'TechSettings',
   components: {
     NavBar,
     TechSettingsTable
