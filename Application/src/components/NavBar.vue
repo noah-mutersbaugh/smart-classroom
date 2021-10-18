@@ -8,7 +8,7 @@
 
     <h1 class="ms-5">{{ msg }}</h1>
 
-    <b-navbar id="navigation" toggleable="sm"> 
+    <b-navbar id="navigation" toggleable="md"> 
       <b-navbar-toggle target="nav-collapse" class="ms-5"></b-navbar-toggle>
 
       <b-collapse id="nav-collapse" class="ms-5" is-nav>
@@ -57,5 +57,9 @@ img {
 
 #nav-list :nth-child(1) > a{
   padding-left: 0;
+}
+
+.navbar-expand-md .navbar-nav .nav-link{
+  padding-right: 1rem;
 }
 </style>

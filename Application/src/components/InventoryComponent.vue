@@ -1,6 +1,9 @@
 <template>
   <div id="inv" class="p-3 m-3 bg-light bg-gradient rounded">
-    <table id="invtable" class="table table-hover table-striped table-responsive-lg p-5">
+    <table
+      id="invtable"
+      class="table table-hover table-striped table-responsive-lg p-5"
+    >
       <thead>
         <tr>
           <th>ID</th>
@@ -81,7 +84,7 @@ export default {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
 #inv {
-  font-size: 1.2rem;
+  font-size: 0.8rem;
 }
 
 thead {
