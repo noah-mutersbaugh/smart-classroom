@@ -2,7 +2,7 @@
   <div class="d-flex flex-column">
     <NavBar msg="GVSU Smart Classrooms" />
     <div class="container p-4 mt-4 bg-gradient bg-light">
-      <div class="row row-cols-1 row-cols-md-2 g-4">
+      <div class="row row-cols-1 row-cols-md-2 g-4 justify-content-center">
         <div class="col">
           <Card
             title="Inventory"
@@ -11,6 +11,7 @@
             link_desc="To Inventory"
           />
         </div>
+
         <div class="col">
           <Card
             title="Technology Specifications"
@@ -19,17 +20,7 @@
             link_desc="To Tech Specs"
           />
         </div>
-        <div class="col">
-          <Card title="FAQ" body="This is where you should go to see the answers to Frequently Asked Questions." link="faq" link_desc="To FAQ" />
-        </div>
-        <div class="col">
-          <Card
-            title="Feedback"
-            body="See a problem with the page? Would you like to have access to a new technology in the classroom? Let us know!"
-            link="feedback"
-            link_desc="To Feedback"
-          />
-        </div>
+
         <div class="col">
           <Card
             title="Technology Settings"
@@ -38,6 +29,7 @@
             link_desc="To Tech Settings"
           />
         </div>
+
         <div class="col">
           <Card
             title="Location of Smart Classrooms"
@@ -46,6 +38,19 @@
             link_desc="To Map"
           />
         </div>
+
+        <div class="col">
+          <Card title="FAQ" body="This is where you should go to see the answers to Frequently Asked Questions." link="faq" link_desc="To FAQ" />
+        </div>
+
+        <!-- <div class="col">
+          <Card
+            title="Feedback"
+            body="See a problem with the page? Would you like to have access to a new technology in the classroom? Let us know!"
+            link="feedback"
+            link_desc="To Feedback"
+          />
+        </div> -->
       </div>
     </div>
   </div>
