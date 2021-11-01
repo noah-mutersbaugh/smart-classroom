@@ -23,6 +23,26 @@ dbserver.client.connect(err => {
         });
     });
 
+    const buildingcollection = dbserver.client.db("smartclassroom").collection("buildings");
+    app.get('/get/buildings', (req, res) => {
+        buildingcollection.find({}).toArray(function(err, result) {
+            if (err) throw err;
+            console.log(result);
+            res.header("Access-Control-Allow-Origin", "*");
+            res.json(result);
+        });
+    });
+
+    const professorcollection = dbserver.client.db("smartclassroom").collection("professors");
+    app.get('/get/professors', (req, res) => {
+        professorcollection.find({}).limit(1).toArray(function(err, result) {
+            if (err) throw err;
+            console.log(result);
+            res.header("Access-Control-Allow-Origin", "*");
+            res.json(result);
+        });
+    });
+
     const techcollection = dbserver.client.db("smartclassroom").collection("technology");
     app.get('/get/tech', (req, res) => {
         techcollection.find({}).toArray(function(err, result) {
