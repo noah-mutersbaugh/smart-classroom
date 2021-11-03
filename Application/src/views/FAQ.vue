@@ -18,7 +18,7 @@
           <div class="card-body">
             <h5 class="card-title">Where are the Smart Classrooms located?</h5>
             <p class="card-text">
-              The Smart Classrooms are located at MAK-1-1-1, xxxx, and xxxx.
+              The Smart Classrooms are located at MAK A-1-111, MAK B-1-110, and DEV E-1-121.
             </p>
           </div>
         </div>

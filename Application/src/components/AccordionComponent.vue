@@ -1,13 +1,13 @@
 <template>
 <div>
     <div class="accordion" role="tablist">
-    <b-card v-for="accordion in accordions" v-bind:key="accordion.num" no-body class="mb-1">
+    <b-card v-for="tech in technologies" v-bind:key="tech._id" no-body class="mb-1">
       <b-card-header header-tag="header" class="p-1" role="tab">
-        <b-button class="accordion-button" block v-b-toggle="accordion.num" variant="info">{{ accordion.title }}</b-button>
+        <b-button class="accordion-button" block v-b-toggle="tech._id" variant="info">{{ tech.name }}</b-button>
       </b-card-header>
-      <b-collapse v-bind:id="accordion.num" accordion="my-accordion" role="tabpanel">
+      <b-collapse v-bind:id="tech._id" accordion="my-accordion" role="tabpanel">
         <b-card-body>
-          <b-card-text class="accordion-text">{{ accordion.text }}</b-card-text>
+          <b-card-text class="accordion-text">{{ tech.description }}</b-card-text>
         </b-card-body>
       </b-collapse>
     </b-card>
@@ -18,37 +18,24 @@
 <script>
 import Vue from 'vue'
 import bootstrapVue from 'bootstrap-vue'
+import VueAxios from 'vue-axios';
+import axios from 'axios';
 
-Vue.use(bootstrapVue)
+Vue.use(VueAxios, axios);
+Vue.use(bootstrapVue);
+
+const db_URL = "http://localhost:4000/get/tech";
 
 export default {
     data: function() {
         return{
-            accordions: [
-                {
-                    num: 'accordion-1',
-                    title: 'A/V Controller',
-                    text: 'Extron ShareLink Pro 500'
-                },
-                {
-                    num: 'accordion-2',
-                    title: 'Projectors',
-                    text: 'Epson PowerLite L510U'
-                },
-                {
-                    num: 'accordion-3',
-                    title: 'Microphones',
-                    text: 'Shure MXA910'
-                },
-                {
-                    num: 'accordion-4',
-                    title: 'Cameras',
-                    text: '1Beyond PTZ-IP Camera' + '\n' + 
-                        '1Beyond PTZ-IP Camera' + '\n' +
-                        'Document Camera' 
-                },
-            ]
+            technologies: []
         };
+    },
+    async mounted() {
+        const resp = await axios.get(db_URL);
+        
+        this.technologies = resp.data;
     },
 }
 </script>

@@ -21,6 +21,8 @@
             >Tech Settings</b-nav-item
           >
           <b-nav-item to="/map">Map</b-nav-item>
+          <b-nav-item to="/faq">FAQ</b-nav-item>
+          <!-- <b-nav-item to="/feedback">Feedback</b-nav-item> -->
         </b-navbar-nav>
         <div class="g-signin2" data-onsuccess="onSignIn"></div>
       </b-collapse>

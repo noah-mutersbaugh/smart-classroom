@@ -14,7 +14,7 @@ export default {
   name: 'Tech',
   components: {
     NavBar,
-    AccordionComponent,
+    AccordionComponent
   }
 }
 </script>

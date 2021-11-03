@@ -76,7 +76,6 @@ export default {
 
     this.messages = resp.data;
     this.items = resp.data;
-    console.log(this.messages);
   },
 };
 </script>

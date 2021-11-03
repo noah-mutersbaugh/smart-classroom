@@ -1,18 +1,20 @@
 <template>
-  <div class="d-flex flex-column">
-    <NavBar msg="Location of Smart Classrooms"/>
-    <Accordion txt="This is content for this component" name=""/>
+  <div class="Map">
+    <NavBar msg="Map"/>
+    <MapComponent/>
   </div>
 </template>
 
 <script>
 // @ is an alias to /src
 import NavBar from '@/components/NavBar.vue'
+import MapComponent from '@/components/MapComponent.vue'
 
 export default {
-  name: 'Home',
+  name: 'Map',
   components: {
-    NavBar
+    NavBar,
+    MapComponent
   }
 }
 </script>
