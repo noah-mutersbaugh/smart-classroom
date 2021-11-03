@@ -16,15 +16,17 @@
           <b-nav-item to="/inventory">Inventory</b-nav-item>
           <b-nav-item to="/tech-specs">Tech Specs</b-nav-item>
           <b-nav-item to="/faq">FAQ</b-nav-item>
-          <b-nav-item to="/feedback">Feedback</b-nav-item>
-          <b-nav-item v-if="signedin()" to="/tech-settings"
+          <!-- <b-nav-item to="/feedback">Feedback</b-nav-item> -->
+          <b-nav-item v-show="signedIn()" to="/tech-settings"
             >Tech Settings</b-nav-item
           >
           <b-nav-item to="/map">Map</b-nav-item>
-          <b-nav-item to="/faq">FAQ</b-nav-item>
+          <!-- <b-nav-item to="/faq">FAQ</b-nav-item> -->
           <!-- <b-nav-item to="/feedback">Feedback</b-nav-item> -->
         </b-navbar-nav>
         <div class="g-signin2" data-onsuccess="onSignIn"></div>
+        <button @click="getInfo()">Get User Info</button>
+        <button @click="logOut()">Log Out</button>
       </b-collapse>
     </b-navbar>
   </div>
@@ -36,15 +38,34 @@ export default {
   props: {
     msg: String,
   },
+  data: function() {
+    return {
+      result: ''
+    }
+  },
   methods: {
-    signedin() { /* Check if the user is signed in using vue-google-api */
+    signedIn() { /* Check if the user is signed in using vue-google-api */
       this.$gapi.isSignedIn().then((result) => {
         console.log(result ? "Signed in" : "Signed out");
         return result;
-      });
+      })
     },
+    getInfo() {
+      this.$gapi.currentUser().then( (profile) => {
+        console.log('ID: ' + profile.id); // Do not send to your backend! Use an ID token instead.
+        console.log('Name: ' + profile.name);
+        console.log('Image URL: ' + profile.image);
+        console.log('Email: ' + profile.email); // This is null if the 'email' scope is not present.));
+      })
+    },
+    logOut() {
+      this.$gapi.signOut()
+        .then(() => {
+          console.log('User disconnected.')
+        })
+    }
   },
-};
+}
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->

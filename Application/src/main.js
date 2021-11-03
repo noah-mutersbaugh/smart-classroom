@@ -1,4 +1,5 @@
 import Vue from 'vue'
+import Vuex from 'vuex'
 import App from './App.vue'
 import router from './router'
 import { BootstrapVue, IconsPlugin } from 'bootstrap-vue'
@@ -14,6 +15,8 @@ const config = {
     scope: 'profile email'
 }
 Vue.use(VueGoogleApi, config);
+
+Vue.use(Vuex);
 
 Vue.use(BootstrapVue);
 Vue.use(IconsPlugin);
