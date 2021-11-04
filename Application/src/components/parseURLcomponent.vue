@@ -1,17 +1,16 @@
 <script src="https://gvsu.edu/smart-classroom?room=MK-1-111"></script>
  <template>
+  <td>
    <div class = "container">
        <div class="row">
            <div class= col-md-10>
+             <b-form @submit="onSubmitLocation" @reset="onLocation" v-if="show">
                <button onclick="location.href='https://gvsu.edu/smart-classroom?room=MK-1-111'" type="button">
                   https://gvsu.edu/smart-classroom?room=MK-1-111</button>
-               <button onclick="location.href='https://gvsu.edu/smart-classroom?room=MK-1-111'" type="button">
-                  https://gvsu.edu/smart-classroom?room=MK-1-111</button>
-               <button onclick="location.href='https://gvsu.edu/smart-classroom?room=MK-1-111'" type="button">
-                  https://gvsu.edu/smart-classroom?room=MK-1-111</button>
-             </div>
+            </div>
        </div>
     </div>
+  </td>
 </template>
 
 <script>
@@ -23,7 +22,7 @@ import bootstrapVue from 'bootstrap-vue';
 
 Vue.use(bootstrapVue);
 export default {
-  name: "button",
+  name: "urlComponent",
   props: {
     title: String,
     body: String,
@@ -32,6 +31,16 @@ export default {
   },
 };
 
+function getParamater(){
+
+}
+   methods: {
+      onSubmitLocation(href){
+        event.preventDefault()
+        alert(JSON.stringify())
+      }
+   };
+
 </script>
 function getLocation(href) {
     var location = document.createElement("a");
@@ -39,7 +48,7 @@ function getLocation(href) {
     // IE doesn't populate all link properties when setting .href with a relative URL,
     // however .href will return an absolute URL which then can be used on itself
     // to populate these additional fields.
-    if (location.host == "") {
+    if (location.host == " ") {
       location.href = location.href;
     }
     return location;
