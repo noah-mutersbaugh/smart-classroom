@@ -1,9 +1,11 @@
 <template>
   <div>
     <b-navbar id="header" toggleable="lg" type="dark">
-      <b-navbar-brand to="/" class="ms-5">
+      <b-navbar-brand to="/" class="ms-5 me-auto">
         <img alt="GVSU Logo" src="@/assets/gvsu_oneline_RGB_white_1024.png" />
       </b-navbar-brand>
+			<div id="google-signin-btn" class="g-signin2 me-5" data-onsuccess="onSignIn" @click="signIn"></div>
+			<button class="me-5" @click="logOut()">Log Out</button>
     </b-navbar>
 
     <h1 class="ms-5">{{ msg }}</h1>
@@ -17,18 +19,17 @@
           <b-nav-item to="/tech-specs">Tech Specs</b-nav-item>
           <b-nav-item to="/faq">FAQ</b-nav-item>
           <!-- <b-nav-item to="/feedback">Feedback</b-nav-item> -->
-          <b-nav-item v-show="signedIn()" to="/tech-settings"
+          <b-nav-item v-show="this.$store.state.loggedIn" to="/tech-settings"
             >Tech Settings</b-nav-item
           >
           <b-nav-item to="/map">Map</b-nav-item>
           <!-- <b-nav-item to="/faq">FAQ</b-nav-item> -->
           <!-- <b-nav-item to="/feedback">Feedback</b-nav-item> -->
         </b-navbar-nav>
-        <div class="g-signin2" data-onsuccess="onSignIn"></div>
-        <button @click="getInfo()">Get User Info</button>
-        <button @click="logOut()">Log Out</button>
       </b-collapse>
     </b-navbar>
+
+    <!-- <div>Logged in Status: {{ this.$store.state.loggedIn }}</div> -->
   </div>
 </template>
 
@@ -38,34 +39,61 @@ export default {
   props: {
     msg: String,
   },
-  data: function() {
+  data: function () {
     return {
-      result: ''
-    }
+      loggedInStatus: undefined,
+    };
   },
+  created() {
+    // On creation, check signed in status and set store state
+    this.$gapi.isSignedIn().then((localLoggedInStatus) => {
+      this.$store.commit(localLoggedInStatus ? "logIn" : "logOut");
+    });
+  },
+  mounted() {
+		// Explicitly render the google sign-in button. Had to use `window.gapi....` to get past the vue-google-api limitations
+		window.gapi.signin2.render('google-signin-btn', { // this is the button "id"
+      onsuccess: this.signIn // note, no "()" here
+    })
+	},
+  watch: {
+    // Watch for changes in the store state
+    "$store.state.loggedIn": function () {
+      this.loggedInStatus = this.$store.state.loggedIn;
+    },
+  },
+  computed: {},
   methods: {
-    signedIn() { /* Check if the user is signed in using vue-google-api */
-      this.$gapi.isSignedIn().then((result) => {
-        console.log(result ? "Signed in" : "Signed out");
-        return result;
-      })
+    signIn() {
+      this.$gapi
+        .signIn()
+        .then((user) => {
+          console.log("Signed in as %s", user.name);
+          this.$store.commit("logIn");
+        })
+        .catch((err) => {
+          console.error("Not signed in: %s", err.error);
+        });
     },
     getInfo() {
-      this.$gapi.currentUser().then( (profile) => {
-        console.log('ID: ' + profile.id); // Do not send to your backend! Use an ID token instead.
-        console.log('Name: ' + profile.name);
-        console.log('Image URL: ' + profile.image);
-        console.log('Email: ' + profile.email); // This is null if the 'email' scope is not present.));
-      })
+      this.$gapi.currentUser().then((profile) => {
+        console.log("ID: " + profile.id); // Do not send to your backend! Use an ID token instead.
+        console.log("Name: " + profile.name);
+        console.log("Image URL: " + profile.image);
+        console.log("Email: " + profile.email); // This is null if the 'email' scope is not present.));
+      });
     },
     logOut() {
-      this.$gapi.signOut()
-        .then(() => {
-          console.log('User disconnected.')
-        })
-    }
+      this.$gapi.signOut().then(() => {
+        this.$store.commit("logOut");
+        console.log("User disconnected.");
+      });
+    },
+    state() {
+      console.log(this.$store.state.loggedIn);
+    },
   },
-}
+};
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
