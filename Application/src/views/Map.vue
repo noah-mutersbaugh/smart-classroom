@@ -1,6 +1,6 @@
 <template>
-  <div class="Map">
-    <NavBar msg="Map"/>
+  <div class="URL">
+    <NavBar msg="URL"/>
     <MapComponent/>
   </div>
 </template>
@@ -8,10 +8,10 @@
 <script>
 // @ is an alias to /src
 import NavBar from '@/components/NavBar.vue'
-import MapComponent from '@/components/MapComponent.vue'
+import MapComponent from '@/components/parseURLcomponent.vue'
 
 export default {
-  name: 'Map',
+  name: 'URL',
   components: {
     NavBar,
     MapComponent

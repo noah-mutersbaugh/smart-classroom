@@ -1,75 +1,153 @@
-<script src="https://gvsu.edu/smart-classroom?room=MK-1-111"></script>
- <template>
-  <td>
-   <div class = "container">
-       <div class="row">
-           <div class= col-md-10>
-             <b-form @submit="onSubmitLocation" @reset="onLocation" v-if="show">
-               <button onclick="location.href='https://gvsu.edu/smart-classroom?room=MK-1-111'" type="button">
-                  https://gvsu.edu/smart-classroom?room=MK-1-111</button>
-            </div>
-       </div>
-    </div>
-  </td>
+<!-- <div id="example-2">
+  `greet` is the name of a method defined below 
+  <button v-on:click="greet">Greet</button>
+  <input type="button" class="btn btn-info" value="Input Button" onclick=" relocate_home()">
+</div> <template>
+  <div id="TechSettings" class="p-3 m-3 bg-light bg-gradient rounded">
+    <table
+      id="settings-table"
+      class="
+        table table-light table-hover table-striped table-responsive-lg
+        p-5
+      "
+    >
+      <thead>
+        <tr>
+          <th scope="col" style="width: 50%">Settings</th>
+          <th scope="col" style="width: 50%"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <th scope="row">Projector Settings</th>
+          <td>
+            <b-form @submit="onSubmitProjector" @reset="onResetProjector" v-if="show">
+              <b-form-group id="input-group-1" label="Power:" v-slot="{ ariaDescribedby }">
+                <b-form-radio-group id="radio-1" v-model="formProjector.projectorPower" :aria-describedby="ariaDescribedby">
+                  <b-form-radio value="On">On</b-form-radio>
+                  <b-form-radio value="Off">Off</b-form-radio>
+                </b-form-radio-group>
+              </b-form-group>
+
+              <b-form-group id="input-group-2" label="Brightness:" label-for="input-2">
+              <b-form-input id="input-2" v-model="formProjector.brightness" placeholder="100" required></b-form-input>
+              </b-form-group>
+
+              <b-form-group id="input-group-3" label="Contrast:" label-for="input-3">
+              <b-form-input id="input-3" v-model="formProjector.contrast" placeholder="100" required></b-form-input>
+              </b-form-group>
+
+            <b-button type="submit" title="Save Settings" class="btn btn-success me-3">
+              <b-icon icon="cloud-upload"></b-icon>
+            </b-button>
+            <b-button type="reset" title="Remove Settings" class="btn btn-danger me-3">
+              <b-icon icon="trash"></b-icon>
+            </b-button>
+            </b-form>
+          </td>
+        </tr>
+        <tr>
+
+</template>
+-->
+
+
+<template>
+  <div id="TechSettings" class="p-3 m-3 bg-light bg-gradient rounded">
+    <table
+      id="settings-table"
+      class="
+        table table-light table-hover table-striped table-responsive-lg
+        p-5
+      "
+    >
+      <thead>
+        <tr>
+          <th scope="col" style="width: 70%">Settings</th>
+          <th scope="col" style="width: 30%"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <th scope="row">Projector Settings</th>
+          <td>
+            <button type="button" class="btn btn-success me-3">
+              <b-icon icon="plus-square"></b-icon>
+            </button>
+            <button type="button" class="btn btn-primary me-3">
+              <b-icon icon="pen"></b-icon>
+            </button>
+            <button type="button" class="btn btn-danger me-3">
+              <b-icon icon="trash"></b-icon>
+            </button>
+          </td>
+        </tr>
+        <tr>
+          <th scope="row">Video Output Settings</th>
+          <td>
+            <button type="button" class="btn btn-success me-3">
+              <b-icon icon="plus-square"></b-icon>
+            </button>
+            <button type="button" class="btn btn-primary me-3">
+              <b-icon icon="pen"></b-icon>
+            </button>
+            <button type="button" class="btn btn-danger me-3">
+              <b-icon icon="trash"></b-icon>
+            </button>
+          </td>
+        </tr>
+        <tr>
+          <th scope="row">Camera Settings</th>
+          <td>
+            <button type="button" class="btn btn-success me-3">
+              <b-icon icon="plus-square"></b-icon>
+            </button>
+            <button type="button" class="btn btn-primary me-3">
+              <b-icon icon="pen"></b-icon>
+            </button>
+            <button type="button" class="btn btn-danger me-3">
+              <b-icon icon="trash"></b-icon>
+            </button>
+          </td>
+        </tr>
+        <tr>
+          <th scope="row">Microphone Settings</th>
+          <td>
+            <button type="button" class="btn btn-success me-3">
+              <b-icon icon="plus-square"></b-icon>
+            </button>
+            <button type="button" class="btn btn-primary me-3">
+              <b-icon icon="pen"></b-icon>
+            </button>
+            <button type="button" class="btn btn-danger me-3">
+              <b-icon icon="trash"></b-icon>
+            </button>
+          </td>
+        </tr>
+        <tr>
+          <th scope="row">Recording Settings</th>
+          <td>
+            <button type="button" class="btn btn-success me-3">
+              <b-icon icon="plus-square"></b-icon>
+            </button>
+            <button type="button" class="btn btn-primary me-3">
+              <b-icon icon="pen"></b-icon>
+            </button>
+            <button type="button" class="btn btn-danger me-3">
+              <b-icon icon="trash"></b-icon>
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
 </template>
 
 <script>
-import Vue from 'vue';
-import bootstrapVue from 'bootstrap-vue';
-//import Button from '../views/Button.vue';
-
-
-
-Vue.use(bootstrapVue);
 export default {
-  name: "urlComponent",
+  name: "TechSettingsTable",
   props: {
-    title: String,
-    body: String,
-    link: String,
-    link_desc: String,
+    msg: String,
   },
 };
-
-function getParamater(){
-
-}
-   methods: {
-      onSubmitLocation(href){
-        event.preventDefault()
-        alert(JSON.stringify())
-      }
-   };
-
 </script>
-function getLocation(href) {
-    var location = document.createElement("a");
-    location.href = href;
-    // IE doesn't populate all link properties when setting .href with a relative URL,
-    // however .href will return an absolute URL which then can be used on itself
-    // to populate these additional fields.
-    if (location.host == " ") {
-      location.href = location.href;
-    }
-    return location;
-};
-var room = this.$route.query.room
-function notLocation(href) {    //Hypertext REFerenc
-    var room = this.$route.query.room;
-    location.href = href;
-    // IE doesn't populate all link properties when setting .href with a relative URL,
-    // however .href will return an absolute URL which then can be used on itself
-    // to populate these additional fields.
-    if (location.host == "" && location.database) {
-        if(loggedIn()&&ValidUser()){
-             location.href = location.href
-             //techSettings(room)
-             
-        }
-    
-    }
-    return location;
-};
-//check to see if valid
-function Location(href) { }
-//check database to see if its in the location

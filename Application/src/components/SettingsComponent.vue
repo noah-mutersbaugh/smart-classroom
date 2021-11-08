@@ -31,9 +31,6 @@ add button for the settings remove accordion
 import Vue from 'vue';
 import bootstrapVue from 'bootstrap-vue';
 //import Button from '../views/Button.vue';
-
-
-
 Vue.use(bootstrapVue);
 export default {
   name: "button",
@@ -44,7 +41,6 @@ export default {
     link_desc: String,
   },
 };
-
 </script>
 
 <style scoped>
@@ -58,4 +54,3 @@ export default {
     }
      
 </style>
-
