@@ -206,24 +206,17 @@ export default {
         show: true
       }
     },
-   // var location = new Vue({
-     // el: 'url'
-     // data:{
-     //   name:
-     // }
-
-    }
-   // function relocate_home(){
-     //  location.href = ""http://localhost:8080/classroom?MAK-111-01";
+   // const relocate_home(){
+     //  location.href = "www.yoursite.com";
     //},
     methods: {
           onSubmitProjector(event) {
         event.preventDefault()
-       // classRoomAvilable: "this class is available ",
-         //location.href = "http://localhost:8080/classroom?MAK-111-01",
-       event.relocate_home()// {
-         //return this.location.href +" " + this.db_URL_Professors +this.classRoomAvilable
-      // }
+        classRoomAvilable: "this class is available ",
+         location.href = "http://localhost:8080/classroom?MAK-111-01",
+       //fullName: event.relocate_home() {
+        // return this.location.href +" " + this.db_URL_Professors +this.classRoomAvilable
+       
         alert(JSON.stringify(this.formProjector))
       },
       onSubmitVideo(event) {
