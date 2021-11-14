@@ -9,6 +9,8 @@ var corsOptions = {
 
 dbserver.client.connect(err => {
     if (err) throw err;
+
+    //Get Classrooms
     const roomcollection = dbserver.client.db("smartclassroom").collection("classrooms");
     
     app.use(cors(corsOptions));
@@ -23,6 +25,7 @@ dbserver.client.connect(err => {
         });
     });
 
+    //Get Buildings
     const buildingcollection = dbserver.client.db("smartclassroom").collection("buildings");
     app.get('/get/buildings', (req, res) => {
         buildingcollection.find({}).toArray(function(err, result) {
@@ -33,6 +36,40 @@ dbserver.client.connect(err => {
         });
     });
 
+    //Get Cameras
+    const cameracollection = dbserver.client.db("smartclassroom").collection("cameras");
+    app.get('/get/cameras', (req, res) => {
+        cameracollection.find({}).toArray(function(err, result) {
+            if (err) throw err;
+            console.log(result);
+            res.header("Access-Control-Allow-Origin", "*");
+            res.json(result);
+        });
+    });
+
+    //Get Settings
+    const settingscollection = dbserver.client.db("smartclassroom").collection("settings");
+    app.get('/get/settings', (req, res) => {
+        settingscollection.find({}).toArray(function(err, result) {
+            if (err) throw err;
+            console.log(result);
+            res.header("Access-Control-Allow-Origin", "*");
+            res.json(result);
+        });
+    });
+
+    //Get Microphones
+    const microphonecollection = dbserver.client.db("smartclassroom").collection("microphones");
+    app.get('/get/microphones', (req, res) => {
+        microphonecollection.find({}).toArray(function(err, result) {
+            if (err) throw err;
+            console.log(result);
+            res.header("Access-Control-Allow-Origin", "*");
+            res.json(result);
+        });
+    });
+
+    //Get Professors
     const professorcollection = dbserver.client.db("smartclassroom").collection("professors");
     app.get('/get/professors', (req, res) => {
         professorcollection.find({}).limit(1).toArray(function(err, result) {
@@ -43,6 +80,7 @@ dbserver.client.connect(err => {
         });
     });
 
+    //Get Technology
     const techcollection = dbserver.client.db("smartclassroom").collection("technology");
     app.get('/get/tech', (req, res) => {
         techcollection.find({}).toArray(function(err, result) {
@@ -53,6 +91,9 @@ dbserver.client.connect(err => {
         });
     });
 
+    //TODO: Still need GET projectors
+
+    
     app.post('/new', (req, res) => {
         res.send('This is posted inventory');
     });
