@@ -35,14 +35,12 @@
         <b-navbar-nav id="nav-list" class="mr-auto">
           <b-nav-item to="/inventory">Inventory</b-nav-item>
           <b-nav-item to="/tech-specs">Tech Specs</b-nav-item>
-          <b-nav-item to="/faq">FAQ</b-nav-item>
-          <!-- <b-nav-item to="/feedback">Feedback</b-nav-item> -->
           <b-nav-item v-show="this.$store.state.loggedIn" to="/tech-settings"
             >Tech Settings</b-nav-item
           >
           <b-nav-item to="/map">Map</b-nav-item>
-          <!-- <b-nav-item to="/faq">FAQ</b-nav-item> -->
-          <!-- <b-nav-item to="/feedback">Feedback</b-nav-item> -->
+          <b-nav-item to="/faq">FAQ</b-nav-item>
+          <b-nav-item to="/feedback">Feedback</b-nav-item>
         </b-navbar-nav>
       </b-collapse>
     </b-navbar>
@@ -62,16 +60,9 @@ export default {
       loggedInStatus: undefined,
     };
   },
-  created() {
-    // On creation, check signed in status and set store state
-    this.$gapi.isSignedIn().then((localLoggedInStatus) => {
-      this.$store.commit(localLoggedInStatus ? "logIn" : "logOut");
-    });
-  },
   mounted() {
     // Explicitly render the google sign-in button. Had to use `window.gapi....` to get past the vue-google-api limitations
     window.gapi.signin2.render("google-signin-btn", {
-      // this is the button "id"
       onsuccess: this.signIn, // note, no "()" here
     });
   },
