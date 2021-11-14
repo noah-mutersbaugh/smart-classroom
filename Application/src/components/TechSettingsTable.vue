@@ -17,21 +17,9 @@
         <tr>
           <th scope="row">Projector Settings</th>
           <td>
-            <b-form
-              @submit="onSubmitProjector"
-              @reset="onResetProjector"
-              v-if="show"
-            >
-              <b-form-group
-                id="input-group-1"
-                label="Power:"
-                v-slot="{ ariaDescribedby }"
-              >
-                <b-form-radio-group
-                  id="radio-1"
-                  v-model="formProjector.projectorPower"
-                  :aria-describedby="ariaDescribedby"
-                >
+            <b-form @submit="onSubmitProjector" @reset="onResetProjector" v-if="show">
+              <b-form-group id="input-group-1" label="Power:" v-slot="{ ariaDescribedby }">
+                <b-form-radio-group id="radio-1" v-model="formProjector.projectorPower" :aria-describedby="ariaDescribedby">
                   <b-form-radio value="On">On</b-form-radio>
                   <b-form-radio value="Off">Off</b-form-radio>
                 </b-form-radio-group>

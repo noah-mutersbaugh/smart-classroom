@@ -33,25 +33,20 @@
 </template>
 
 <script>
-
-
 </script>
 <style>
 :root {
-    --fontSizeBase: 14.5px;
-    --lgWidth: 1280px;
-    --smWidth: 800px;
-    --mdWidth: 1000px;
-    --maxWidth: 1366px;
-    --fontsize: 17px/var(--fontSizeBase) * 100%;
+  --fontSizeBase: 14.5px;
+  --lgWidth: 1280px;
+  --smWidth: 800px;
+  --mdWidth: 1000px;
+  --maxWidth: 1366px;
+  --fontsize: 17px / var(--fontSizeBase) * 100%;
 }
-
 
 text {
-    white-space: pre;
-    text-align: left;
-    padding: .625em;
+  white-space: pre;
+  text-align: left;
+  padding: 0.625em;
 }
-
-
 </style>
