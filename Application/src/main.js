@@ -10,7 +10,7 @@ import 'bootstrap/dist/css/bootstrap.css'
 import 'bootstrap-vue/dist/bootstrap-vue.css'
 import './assets/main.css'
 
-import config from "./secrets/config.js"
+//import config from "./secrets/config.js"
 console.log(config)
 Vue.use(VueGoogleApi, config);
 
