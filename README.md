@@ -3,4 +3,4 @@ Project for CIS 467 with Eric Kunning and Hunter Bridwell. The purpose is to int
 
 
 # NMP permission denied solution
- 'rm -rf node_modules package-lock.json && npm install && npm start'
+ ```rm -rf node_modules package-lock.json && npm install && npm start```
