@@ -103,6 +103,8 @@ dbserver.client.connect(err => {
         res.send("Updated");
     });
 
+    //TODO: Still need patches for each collection
+
     app.post('/new', (req, res) => {
         res.send('This is posted inventory');
     });
