@@ -251,15 +251,48 @@ export default {
       },
       onSubmitCamera(event) {
         event.preventDefault()
-        alert(JSON.stringify(this.formCamera))
+        const cameraInfo = this.formCamera;
+        const patchURL = 'http://localhost:4000/patch/professors/' + this.id;
+        const cameraObj =
+          {
+            onoff : cameraInfo.cameraPower,
+            tracking : cameraInfo.tracking,
+            zoom : cameraInfo.zoom
+          };
+
+        axios.patch(patchURL, 
+        {
+          'settings.camera' : cameraObj
+        });
       },
       onSubmitMic(event) {
         event.preventDefault()
-        alert(JSON.stringify(this.formMic))
+        const micInfo = this.formMic;
+        const patchURL = 'http://localhost:4000/patch/professors/' + this.id;
+        const micObj =
+          {
+            onoff : micInfo.micPower,
+            volume : micInfo.volume
+          };
+
+        axios.patch(patchURL, 
+        {
+          'settings.microphone' : micObj
+        });
       },
       onSubmitRec(event) {
         event.preventDefault()
-        alert(JSON.string(this.formRec))
+        const recInfo = this.formRec;
+        const patchURL = 'http://localhost:4000/patch/professors/' + this.id;
+        const recObj =
+          {
+            onoff : recInfo.recPower
+          };
+
+        axios.patch(patchURL, 
+        {
+          'settings.recorder' : recObj
+        });
       },
       onResetProjector(event) {
         event.preventDefault()
@@ -326,9 +359,22 @@ export default {
         this.id = professor[0]._id;
         var projectors = [];
         projectors = professor[0].settings.projectors;
+        var video = professor[0].settings.video;
+        var camera = professor[0].settings.camera;
+        var mic = professor[0].settings.microphone;
+        var rec = professor[0].settings.recorder;
         this.formProjector.projectorPower = projectors[0].onoff;
         this.formProjector.brightness = projectors[0].brightness;
         this.formProjector.contrast = projectors[0].contrast;
+        this.formVideo.videoPower = video.onoff;
+        this.formVideo.source = video.source;
+        this.formVideo.cable = video.cable;
+        this.formCamera.cameraPower = camera.onoff;
+        this.formCamera.tracking = camera.tracking;
+        this.formCamera.zoom = camera.zoom;
+        this.formMic.micPower = mic.onoff;
+        this.formMic.volume = mic.volume;
+        this.formRec.recPower = rec.onoff;
     },
 };
 </script>
