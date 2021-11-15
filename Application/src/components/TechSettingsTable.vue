@@ -232,6 +232,8 @@ export default {
         {
           'settings.projectors' : projObj
         });
+        alert("Projector Settings Saved");
+
       },
       onSubmitVideo(event) {
         event.preventDefault()
@@ -248,6 +250,8 @@ export default {
         {
           'settings.video' : videoObj
         });
+        alert("Video Settings Saved");
+
       },
       onSubmitCamera(event) {
         event.preventDefault()
@@ -264,6 +268,8 @@ export default {
         {
           'settings.camera' : cameraObj
         });
+        alert("Camera Settings Saved");
+
       },
       onSubmitMic(event) {
         event.preventDefault()
@@ -279,6 +285,7 @@ export default {
         {
           'settings.microphone' : micObj
         });
+        alert("Microphone Settings Saved");
       },
       onSubmitRec(event) {
         event.preventDefault()
@@ -293,6 +300,8 @@ export default {
         {
           'settings.recorder' : recObj
         });
+        alert("Recorder Settings Saved");
+
       },
       onResetProjector(event) {
         event.preventDefault()

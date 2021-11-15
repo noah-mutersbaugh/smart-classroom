@@ -103,7 +103,92 @@ dbserver.client.connect(err => {
         res.send("Updated");
     });
 
-    //TODO: Still need patches for each collection
+    app.patch('/patch/buildings/:id', (req, res) =>{
+        var updateObject = req.body;
+        var id = req.params.id;
+        console.log(req.body);
+        buildingcollection.updateOne({_id : ObjectId(id)}, {$mod: updateObject});
+        res.send("Updated");
+    });
+
+    app.patch('/patch/cameras/:id', (req, res) =>{
+        var updateObject = req.body;
+        var id = req.params.id;
+        console.log(req.body);
+        cameracollection.updateOne({_id : ObjectId(id)}, {$mod: updateObject});
+        res.send("Updated");
+    });
+
+    app.patch('/patch/classrooms/:id', (req, res) =>{
+        var updateObject = req.body;
+        var id = req.params.id;
+        console.log(req.body);
+        roomcollection.updateOne({_id : ObjectId(id)}, {$mod: updateObject});
+        res.send("Updated");
+    });
+
+    app.patch('/patch/technology/:id', (req, res) =>{
+        var updateObject = req.body;
+        var id = req.params.id;
+        console.log(req.body);
+        techcollection.updateOne({_id : ObjectId(id)}, {$mod: updateObject});
+        res.send("Updated");
+    });
+
+    //TODO: Still need PATCHES for missing collections
+
+    //TODO: Still need POSTS for missing collections
+
+    //TODO: Still need DELETE for missing collections
+
+    app.delete('/delete/technology/:id', (req, res) =>{
+        var id = req.params.id;
+        console.log("Deleted ID: " + id);
+        techcollection.deleteOne({_id : ObjectId(id)});
+        res.send("Deleted");
+    });
+
+    app.delete('/delete/classrooms/:id', (req, res) =>{
+        var id = req.params.id;
+        console.log("Deleted ID: " + id);
+        roomcollection.deleteOne({_id : ObjectId(id)});
+        res.send("Deleted");
+    });
+
+    app.delete('/delete/professors/:id', (req, res) =>{
+        var id = req.params.id;
+        console.log("Deleted ID: " + id);
+        professorcollection.deleteOne({_id : ObjectId(id)});
+        res.send("Deleted");
+    });
+
+    app.delete('/delete/buildings/:id', (req, res) =>{
+        var id = req.params.id;
+        console.log("Deleted ID: " + id);
+        buildingcollection.deleteOne({_id : ObjectId(id)});
+        res.send("Deleted");
+    });
+
+    app.delete('/delete/cameras/:id', (req, res) =>{
+        var id = req.params.id;
+        console.log("Deleted ID: " + id);
+        cameracollection.deleteOne({_id : ObjectId(id)});
+        res.send("Deleted");
+    });
+
+    app.delete('/delete/microphones/:id', (req, res) =>{
+        var id = req.params.id;
+        console.log("Deleted ID: " + id);
+        microphonecollection.deleteOne({_id : ObjectId(id)});
+        res.send("Deleted");
+    });
+
+    app.delete('/delete/settings/:id', (req, res) =>{
+        var id = req.params.id;
+        console.log("Deleted ID: " + id);
+        settingscollection.deleteOne({_id : ObjectId(id)});
+        res.send("Deleted");
+    });
 
     app.post('/new', (req, res) => {
         res.send('This is posted inventory');
