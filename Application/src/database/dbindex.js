@@ -1,6 +1,7 @@
 const express = require('express');
 const dbserver = require('../database/db');
 const cors = require("cors");
+const { ObjectId } = require('bson');
 const app = express();
 
 var corsOptions = {
@@ -14,6 +15,7 @@ dbserver.client.connect(err => {
     const roomcollection = dbserver.client.db("smartclassroom").collection("classrooms");
     
     app.use(cors(corsOptions));
+    app.use(express.json());
     app.options('/get/classrooms', cors());
 
     app.get('/get/classrooms', (req, res) => {
@@ -93,7 +95,14 @@ dbserver.client.connect(err => {
 
     //TODO: Still need GET projectors
 
-    
+    app.patch('/patch/professors/:id', (req, res) =>{
+        var updateObject = req.body;
+        var id = req.params.id;
+        console.log(req.body);
+        professorcollection.updateOne({_id : ObjectId(id)}, {$mod: updateObject});
+        res.send("Updated");
+    });
+
     app.post('/new', (req, res) => {
         res.send('This is posted inventory');
     });

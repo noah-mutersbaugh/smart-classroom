@@ -176,8 +176,8 @@ export default {
       return {
         formProjector: {
           projectorPower: [],
-          brightness: '',
-          contrast: ''
+          brightness: 0,
+          contrast: 0
         },
         formVideo: {
           videoPower: [],
@@ -196,17 +196,58 @@ export default {
         formRec: {
           recPower: ""
         },
-        show: true
+        show: true,
+        id: ""
       }
     },
     methods: {
       onSubmitProjector(event) {
         event.preventDefault()
-        alert(JSON.stringify(this.formProjector))
+        const projInfo = this.formProjector;
+        const patchURL = 'http://localhost:4000/patch/professors/' + this.id;
+        const projObj = [
+          {
+            onoff : projInfo.projectorPower,
+            brightness : projInfo.brightness,
+            contrast : projInfo.contrast
+          },
+          {
+            onoff : projInfo.projectorPower,
+            brightness : projInfo.brightness,
+            contrast : projInfo.contrast
+          },
+          {
+            onoff : projInfo.projectorPower,
+            brightness : projInfo.brightness,
+            contrast : projInfo.contrast
+          },
+          {
+            onoff : projInfo.projectorPower,
+            brightness : projInfo.brightness,
+            contrast : projInfo.contrast
+          }
+        ];
+
+        axios.patch(patchURL, 
+        {
+          'settings.projectors' : projObj
+        });
       },
       onSubmitVideo(event) {
         event.preventDefault()
-        alert(JSON.stringify(this.formVideo))
+        const videoInfo = this.formVideo;
+        const patchURL = 'http://localhost:4000/patch/professors/' + this.id;
+        const videoObj =
+          {
+            onoff : videoInfo.videoPower,
+            source : videoInfo.source,
+            cable : videoInfo.cable
+          };
+
+        axios.patch(patchURL, 
+        {
+          'settings.video' : videoObj
+        });
       },
       onSubmitCamera(event) {
         event.preventDefault()
@@ -282,11 +323,12 @@ export default {
         var resp = await axios.get(db_URL_Professors);
         var professor = [];
         professor = resp.data;
+        this.id = professor[0]._id;
         var projectors = [];
         projectors = professor[0].settings.projectors;
-        this.formProjector.projectorPower = projectors[0].oldonoff;
-        this.formProjector.brightness = projectors[0].oldbrightness;
-        this.formProjector.contrast = projectors[0].oldcontrast;
+        this.formProjector.projectorPower = projectors[0].onoff;
+        this.formProjector.brightness = projectors[0].brightness;
+        this.formProjector.contrast = projectors[0].contrast;
     },
 };
 </script>
