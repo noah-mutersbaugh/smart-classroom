@@ -99,7 +99,7 @@ dbserver.client.connect(err => {
         var updateObject = req.body;
         var id = req.params.id;
         console.log(req.body);
-        professorcollection.updateOne({_id : ObjectId(id)}, {$mod: updateObject});
+        professorcollection.updateOne({_id : ObjectId(id)}, {$set: updateObject});
         res.send("Updated");
     });
 
@@ -107,7 +107,7 @@ dbserver.client.connect(err => {
         var updateObject = req.body;
         var id = req.params.id;
         console.log(req.body);
-        buildingcollection.updateOne({_id : ObjectId(id)}, {$mod: updateObject});
+        buildingcollection.updateOne({_id : ObjectId(id)}, {$set: updateObject});
         res.send("Updated");
     });
 
@@ -115,7 +115,7 @@ dbserver.client.connect(err => {
         var updateObject = req.body;
         var id = req.params.id;
         console.log(req.body);
-        cameracollection.updateOne({_id : ObjectId(id)}, {$mod: updateObject});
+        cameracollection.updateOne({_id : ObjectId(id)}, {$set: updateObject});
         res.send("Updated");
     });
 
@@ -123,7 +123,7 @@ dbserver.client.connect(err => {
         var updateObject = req.body;
         var id = req.params.id;
         console.log(req.body);
-        roomcollection.updateOne({_id : ObjectId(id)}, {$mod: updateObject});
+        roomcollection.updateOne({_id : ObjectId(id)}, {$set: updateObject});
         res.send("Updated");
     });
 
@@ -131,7 +131,7 @@ dbserver.client.connect(err => {
         var updateObject = req.body;
         var id = req.params.id;
         console.log(req.body);
-        techcollection.updateOne({_id : ObjectId(id)}, {$mod: updateObject});
+        techcollection.updateOne({_id : ObjectId(id)}, {$set: updateObject});
         res.send("Updated");
     });
 
