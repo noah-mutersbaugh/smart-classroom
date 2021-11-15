@@ -64,6 +64,7 @@ export default {
   data: function () {
     return {
       loggedInStatus: undefined,
+	  thisIsSmartclass: true,
     };
   },
   created() {
@@ -87,20 +88,32 @@ export default {
   },
   //computed is here
   computed: {
+	
+
 	  //determine whether or not the parameter in the URL is a class in the database. I.e. is the classroom a smart classroom or not
     //eventually be done in App.vue, but it will probably be easier for you to use a button you create in a component
 	 checkPara(){
-		const classes = require( '../models/classroomsmodel');
-    	var room= this.$route.query.room //gets the paramater of the url
-    	classes.$route.query.room(err =>{
-    		if (room !=classes) throw err;
-				const different  = classes.client.db("smartclassroom").differnet("classrooms");
+		 //smartclesses.client.connect(err => {
+    //if (err) throw err;
+    //const collection = dbserver.client.db("smartclassroom").collection("classrooms");});
+	//	const smartclassroom  = dbserver.client.db("smartclassroom").collection("classrooms");
+		//pull.get.require( '../models/classroomsmodel',(req,res) =>{
+
+		 const smartclasses = require( '../models/classroomsmodel');
+    	signIn.$route.query.smartclasses(err =>{
+			if (signIn !=smartclasses){
+				//throw err;
+				const different  = smartclasses.client.db("smartclassroom").differnet("classrooms");
 				this.$store.commit("Denied");
-       			console.log("Not a smart classroom.");		 
-    });
-			 this.$gapi .checkPara().then((user) => {
+       			console.log("Not a smart classroom.");		
+			}
+			 else {
+				this.$gapi .checkPara().then((user) => {
          		 console.log("Signed in as %s", user.room);
-          this.$store.commit("Correct Room");
+          		this.$store.commit("Correct Room");
+		  		this.thisIsSmartclass = this.$store.state.loggedIn;
+			});
+			 }
         });
 	 },
   },
