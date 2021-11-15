@@ -9,19 +9,19 @@
 
       <b-collapse id="nav-collapse1" is-nav>
         <b-navbar-nav class="ms-auto mx-5">
-					<b-nav-item-dropdown right>
-          <!-- Using 'button-content' slot -->
-          <template #button-content>
-            <em>User</em>
-          </template>
-          <div
+          <b-nav-item-dropdown right>
+            <!-- Using 'button-content' slot -->
+            <template #button-content>
+              <em>User</em>
+            </template>
+            <div
               id="google-signin-btn"
               class="g-signin2 me-5"
               data-onsuccess="onSignIn"
               @click="signIn"
             ></div>
             <b-nav-item @click="logOut()">Log Out</b-nav-item>
-        </b-nav-item-dropdown>
+          </b-nav-item-dropdown>
         </b-navbar-nav>
       </b-collapse>
     </b-navbar>
@@ -52,7 +52,10 @@
 </template>
 
 <script>
-//########################################################################################################################
+//########################################################################################################################3
+//import classroomsmodel from './Application/src/models/classroomsmodel.js'
+
+
 export default {
   name: "NavBar",
   props: {
@@ -82,7 +85,26 @@ export default {
       this.loggedInStatus = this.$store.state.loggedIn;
     },
   },
-  computed: {},
+  //computed is here
+  computed: {
+	  //determine whether or not the parameter in the URL is a class in the database. I.e. is the classroom a smart classroom or not
+    //eventually be done in App.vue, but it will probably be easier for you to use a button you create in a component
+	 checkPara(){
+		const classes = require( '../models/classroomsmodel');
+    	var room= this.$route.query.room //gets the paramater of the url
+    	classes.$route.query.room(err =>{
+    		if (room !=classes) throw err;
+				const different  = classes.client.db("smartclassroom").differnet("classrooms");
+				this.$store.commit("Denied");
+       			console.log("Not a smart classroom.");		 
+    });
+			 this.$gapi .checkPara().then((user) => {
+         		 console.log("Signed in as %s", user.room);
+          this.$store.commit("Correct Room");
+        });
+	 },
+  },
+
   methods: {
     signIn() {
       this.$gapi
@@ -108,10 +130,8 @@ export default {
         this.$store.commit("logOut");
         console.log("User disconnected.");
       });
-    },
-    state() {
-      console.log(this.$store.state.loggedIn);
-    },
+    },			
+	
   },
 };
 </script>
