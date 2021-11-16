@@ -8,20 +8,17 @@
       <b-navbar-toggle target="nav-collapse1"></b-navbar-toggle>
 
       <b-collapse id="nav-collapse1" is-nav>
-        <b-navbar-nav class="ms-auto mx-5">
-					<b-nav-item-dropdown right>
-          <!-- Using 'button-content' slot -->
-          <template #button-content>
-            <em>User</em>
-          </template>
-          <div
+        <b-navbar-nav class="ms-auto me-5">
+          <b-nav-item-dropdown id="profile-dropdown" v-bind:text="loggedInStatus ? `Logged in as ${user}` : 'Log In'" right>
+            <div
+              v-show="!loggedInStatus"
               id="google-signin-btn"
               class="g-signin2 me-5"
               data-onsuccess="onSignIn"
               @click="signIn"
             ></div>
-            <b-nav-item @click="logOut()">Log Out</b-nav-item>
-        </b-nav-item-dropdown>
+            <b-dropdown-item v-show="loggedInStatus" @click="logOut()">Log Out</b-dropdown-item>
+          </b-nav-item-dropdown>
         </b-navbar-nav>
       </b-collapse>
     </b-navbar>
@@ -58,6 +55,7 @@ export default {
   data: function () {
     return {
       loggedInStatus: undefined,
+      user: undefined
     };
   },
   mounted() {
@@ -79,6 +77,7 @@ export default {
         .signIn()
         .then((user) => {
           console.log("Signed in as %s", user.name);
+          this.user = user.name;
           this.$store.commit("logIn");
         })
         .catch((err) => {
@@ -89,6 +88,7 @@ export default {
       this.$gapi.currentUser().then((profile) => {
         console.log("ID: " + profile.id); // Do not send to your backend! Use an ID token instead.
         console.log("Name: " + profile.name);
+        this.user = profile.name;
         console.log("Image URL: " + profile.image);
         console.log("Email: " + profile.email); // This is null if the 'email' scope is not present.));
       });

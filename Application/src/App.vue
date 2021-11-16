@@ -1,6 +1,6 @@
 <template>
   <div id="app" class=".container-fluid">
-    <router-view/>
+    <router-view />
   </div>
 </template>
 
@@ -41,5 +41,5 @@ export default {
       }
     });
   },
-}
+};
 </script>
