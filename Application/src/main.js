@@ -23,18 +23,17 @@ Vue.config.productionTip = false
 
 const store = new Vuex.Store({
     state: {
-      count: 0,
-      loggedIn: undefined
+        loggedIn: undefined
     },
     mutations: {
-      logOut(state) {
-        state.loggedIn = false;
-      },
-      logIn(state){
-        state.loggedIn = true;
-      }
+        logOut(state) {
+            state.loggedIn = false;
+        },
+        logIn(state) {
+            state.loggedIn = true;
+        }
     }
-  });
+});
 
 new Vue({
     router,

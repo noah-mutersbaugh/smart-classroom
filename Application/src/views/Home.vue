@@ -43,14 +43,14 @@
           <Card title="FAQ" body="This is where you should go to see the answers to Frequently Asked Questions." link="faq" link_desc="To FAQ" />
         </div>
 
-        <!-- <div class="col">
+        <div class="col">
           <Card
             title="Feedback"
             body="See a problem with the page? Would you like to have access to a new technology in the classroom? Let us know!"
             link="feedback"
             link_desc="To Feedback"
           />
-        </div> -->
+        </div>
       </div>
     </div>
   </div>
