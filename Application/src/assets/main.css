@@ -38,3 +38,8 @@ div {
     color: grey;
     font-weight: bold;
 }
+
+.dropdown-menu-right {
+    right: 0;
+    left: auto;
+}

@@ -23,25 +23,21 @@ Vue.config.productionTip = false
 
 const store = new Vuex.Store({
     state: {
-      count: 0,
-      loggedIn: undefined,
-      adminLoggedIn: undefined
+        loggedIn: undefined,
+        user: undefined
     },
     mutations: {
-      logOut(state) {
-        state.loggedIn = false;
-      },
-      logIn(state){
-        state.loggedIn = true;
-      },
-      adminLogIn(state){
-        state.adminLoggedIn = true;
-      },
-      adminLogOut(state){
-        state.adminLoggedIn = false;
-      }
+        logOut(state) {
+            state.loggedIn = false;
+        },
+        logIn(state) {
+            state.loggedIn = true;
+        },
+        changeUser(state, user) {
+            state.user = user;
+        }
     }
-  });
+});
 
 new Vue({
     router,
