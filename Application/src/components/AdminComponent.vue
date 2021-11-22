@@ -72,10 +72,10 @@
               </b-button>
               <b-button
                 type="reset"
-                title="Clear Settings"
+                title="Remove Settings"
                 class="btn btn-danger me-3"
               >
-                Clear
+                <b-icon icon="trash"></b-icon>
               </b-button>
             </b-form>
           </td>
@@ -138,10 +138,10 @@
               </b-button>
               <b-button
                 type="reset"
-                title="Clear Settings"
+                title="Remove Settings"
                 class="btn btn-danger me-3"
               >
-                Clear
+                <b-icon icon="trash"></b-icon>
               </b-button>
             </b-form>
           </td>
@@ -202,10 +202,10 @@
               </b-button>
               <b-button
                 type="reset"
-                title="Clear Settings"
+                title="Remove Settings"
                 class="btn btn-danger me-3"
               >
-                Clear
+                <b-icon icon="trash"></b-icon>
               </b-button>
             </b-form>
           </td>
@@ -251,10 +251,10 @@
               </b-button>
               <b-button
                 type="reset"
-                title="Clear Settings"
+                title="Remove Settings"
                 class="btn btn-danger me-3"
               >
-                Clear
+                <b-icon icon="trash"></b-icon>
               </b-button>
             </b-form>
           </td>
@@ -287,10 +287,10 @@
               </b-button>
               <b-button
                 type="reset"
-                title="Clear Settings"
+                title="Remove Settings"
                 class="btn btn-danger me-3"
               >
-                Clear
+                <b-icon icon="trash"></b-icon>
               </b-button>
             </b-form>
           </td>

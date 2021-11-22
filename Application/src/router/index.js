@@ -47,6 +47,12 @@ const routes = [{
         name: 'TechSettings',
         component: () =>
             import ( /* webpackChunkName: "about" */ '../views/TechSettings.vue')
+    },
+    {
+        path: '/admin',
+        name: 'Admin',
+        component: () =>
+            import ('../views/Admin.vue')
     }
 ]
 
