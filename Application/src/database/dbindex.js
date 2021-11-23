@@ -190,9 +190,48 @@ dbserver.client.connect(err => {
         res.send("Deleted");
     });
 
-    app.post('/new', (req, res) => {
-        res.send('This is posted inventory');
+    app.post('/new/building', (req, res) => {
+        //var name = req.params.name;
+        //var location = req.params.location;
+        //var abbreviation = req.params.abbreviation;
+        var newBody = req.body;
+        buildingcollection.insertOne(newBody)
+        res.send('Posted');
     });
+
+    app.post('/new/classroom', (req, res) => {
+        //var buildingabbr = req.params.buildingabbr;
+        //var num = req.params.num;
+        //var size = req.params.size;
+        //var tech = req.params.tech;
+        //var layoutids = req.params.layoutids;
+        //var recsettings = req.params.recsettings;
+        var newBody = req.body;
+        roomcollection.insertOne(newBody)
+        res.send('Posted');
+    });
+
+    app.post('/new/professor', (req, res) => {
+        //var profname = req.params.profname;
+        //var buildingabbr = req.params.buildingabbr;
+        //var num = req.params.num;
+        //var settings = req.params.settings;
+        //var permission = req.params.permission;
+        //var email = req.params.email;
+        var newBody = req.body;
+        professorcollection.insertOne(newBody)
+        res.send('Posted');
+    });
+
+    app.post('/new/tech', (req, res) => {
+        //var name = req.params.name;
+        //var description = req.params.description;
+        //var category = req.params.category;
+        var newBody = req.body;
+        techcollection.insertOne(newBody);
+        res.send('Posted');
+    });
+
 });
 
 const port = process.env.PORT || 4000;

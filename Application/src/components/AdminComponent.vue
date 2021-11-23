@@ -1,5 +1,5 @@
 <template>
-  <div id="TechSettings" class="p-3 m-3 bg-light bg-gradient rounded">
+  <div id="adminsettings" class="p-3 m-3 bg-light bg-gradient rounded">
     <table
       id="settings-table"
       class="
@@ -9,56 +9,56 @@
     >
       <thead>
         <tr>
-          <th scope="col" style="width: 50%">Settings</th>
+          <th scope="col" style="width: 50%">Database Management</th>
           <th scope="col" style="width: 50%"></th>
         </tr>
       </thead>
       <tbody>
         <tr>
-          <th scope="row">Projector Settings</th>
+          <th scope="row">Professor</th>
           <td>
             <b-form
-              @submit="onSubmitProjector"
-              @reset="onResetProjector"
+              @submit="onSubmitProfessor"
+              @reset="onResetProfessor"
               v-if="show"
             >
               <b-form-group
                 id="input-group-1"
-                label="Power:"
-                v-slot="{ ariaDescribedby }"
+                label="Name:"
+                label-for="input-1"
               >
-                <b-form-radio-group
-                  id="radio-1"
-                  v-model="formProjector.projectorPower"
-                  :aria-describedby="ariaDescribedby"
+                <b-form-input
+                  id="input-1"
+                  v-model="formProfessor.profname"
+                  placeholder="Enter Name"
+                  required
                 >
-                  <b-form-radio value="On">On</b-form-radio>
-                  <b-form-radio value="Off">Off</b-form-radio>
-                </b-form-radio-group>
+                </b-form-input>
               </b-form-group>
 
               <b-form-group
                 id="input-group-2"
-                label="Brightness:"
+                label="Permission:"
                 label-for="input-2"
               >
                 <b-form-input
                   id="input-2"
-                  v-model="formProjector.brightness"
-                  placeholder="100"
+                  v-model="formProfessor.permission"
+                  placeholder="0 = Admin 1 = Non-Admin Professor 2 = Student"
                   required
                 ></b-form-input>
               </b-form-group>
 
               <b-form-group
                 id="input-group-3"
-                label="Contrast:"
+                label="Email:"
                 label-for="input-3"
               >
                 <b-form-input
                   id="input-3"
-                  v-model="formProjector.contrast"
-                  placeholder="100"
+                  v-model="formProfessor.email"
+                  type="email"
+                  placeholder="Enter Email"
                   required
                 ></b-form-input>
               </b-form-group>
@@ -81,52 +81,49 @@
           </td>
         </tr>
         <tr>
-          <th scope="row">Video Output Settings</th>
+          <th scope="row">Technology</th>
           <td>
-            <b-form @submit="onSubmitVideo" @reset="onResetVideo" v-if="show">
+            <b-form @submit="onSubmitTechnology" @reset="onResetTechnology" v-if="show">
               <b-form-group
                 id="input-group-1"
-                label="Power:"
-                v-slot="{ ariaDescribedby }"
+                label="Name:"
+                label-for="input-4"
               >
-                <b-form-radio-group
-                  id="radio-2"
-                  v-model="formVideo.videoPower"
-                  :aria-describedby="ariaDescribedby"
+                <b-form-input
+                  id="input-4"
+                  v-model="formTechnology.name"
+                  placeholder="Enter Name"
+                  required
                 >
-                  <b-form-radio value="On">On</b-form-radio>
-                  <b-form-radio value="Off">Off</b-form-radio>
-                </b-form-radio-group>
+                </b-form-input>
               </b-form-group>
 
               <b-form-group
                 id="input-group-2"
-                label="Source:"
-                v-slot="{ ariaDescribedby }"
+                label="Description:"
+                label-for="input-5"
               >
-                <b-form-radio-group
-                  id="radio-3"
-                  v-model="formVideo.source"
-                  :aria-describedby="ariaDescribedby"
+                <b-form-input
+                  id="input-5"
+                  v-model="formTechnology.description"
+                  placeholder="Enter Description"
+                  required
                 >
-                  <b-form-radio value="internal">Internal</b-form-radio>
-                  <b-form-radio value="external">External</b-form-radio>
-                </b-form-radio-group>
+                </b-form-input>
               </b-form-group>
 
               <b-form-group
                 id="input-group-3"
-                label="Cable:"
-                v-slot="{ ariaDescribedby }"
+                label="category:"
+                label-for="input-6"
               >
-                <b-form-radio-group
-                  id="radio-4"
-                  v-model="formVideo.cable"
-                  :aria-describedby="ariaDescribedby"
+                <b-form-input
+                  id="input-6"
+                  v-model="formTechnology.category"
+                  placeholder="Enter Category Example: Projector, Camera, Microphone"
+                  required
                 >
-                  <b-form-radio value="hdmi">HDMI</b-form-radio>
-                  <b-form-radio value="usbc">USB-C</b-form-radio>
-                </b-form-radio-group>
+                </b-form-input>
               </b-form-group>
 
               <b-button
@@ -147,48 +144,46 @@
           </td>
         </tr>
         <tr>
-          <th scope="row">Camera Settings</th>
+          <th scope="row">Buildings</th>
           <td>
-            <b-form @submit="onSubmitCamera" @reset="onResetCamera" v-if="show">
+            <b-form @submit="onSubmitBuilding" @reset="onResetBuilding" v-if="show">
               <b-form-group
                 id="input-group-1"
-                label="Power:"
-                v-slot="{ ariaDescribedby }"
+                label="Name:"
+                label-for="input-7"
               >
-                <b-form-radio-group
-                  id="radio-2"
-                  v-model="formCamera.cameraPower"
-                  :aria-describedby="ariaDescribedby"
+                <b-form-input
+                  id="input-7"
+                  v-model="formBuilding.name"
+                  placeholder="Enter Building Name"
+                  required
                 >
-                  <b-form-radio value="on">On</b-form-radio>
-                  <b-form-radio value="off">Off</b-form-radio>
-                </b-form-radio-group>
+                </b-form-input>
               </b-form-group>
 
               <b-form-group
                 id="input-group-2"
-                label="Tracking:"
-                v-slot="{ ariaDescribedby }"
+                label="Location:"
+                label-for="input-8"
               >
-                <b-form-radio-group
-                  id="radio-3"
-                  v-model="formCamera.tracking"
-                  :aria-describedby="ariaDescribedby"
+                <b-form-input
+                  id="input-8"
+                  v-model="formBuilding.location"
+                  placeholder="Enter Location Example: Allendale"
+                  required
                 >
-                  <b-form-radio value="auto">Auto</b-form-radio>
-                  <b-form-radio value="off">Off</b-form-radio>
-                </b-form-radio-group>
+                </b-form-input>
               </b-form-group>
 
               <b-form-group
                 id="input-group-3"
-                label="Zoom:"
-                label-for="input-3"
+                label="Abbreviation:"
+                label-for="input-9"
               >
                 <b-form-input
-                  id="input-3"
-                  v-model="formCamera.zoom"
-                  placeholder="100"
+                  id="input-9"
+                  v-model="formBuilding.abbreviation"
+                  placeholder="Enter Building Abbreviation Example: MAK"
                   required
                 ></b-form-input>
               </b-form-group>
@@ -211,71 +206,46 @@
           </td>
         </tr>
         <tr>
-          <th scope="row">Microphone Settings</th>
+          <th scope="row">Classrooms</th>
           <td>
-            <b-form @submit="onSubmitMic" @reset="onResetMic" v-if="show">
+            <b-form @submit="onSubmitClassroom" @reset="onResetClassroom" v-if="show">
               <b-form-group
                 id="input-group-1"
-                label="Power:"
-                v-slot="{ ariaDescribedby }"
+                label="Buildling Abbreviation:"
+                label-for="input-10"
               >
-                <b-form-radio-group
-                  id="radio-2"
-                  v-model="formMic.micPower"
-                  :aria-describedby="ariaDescribedby"
+                <b-form-input
+                  id="input-10"
+                  v-model="formClassroom.buildingabbr"
+                  placeholder="Enter Building Abbreviation Example: MAK"
                 >
-                  <b-form-radio value="on">On</b-form-radio>
-                  <b-form-radio value="off">Off</b-form-radio>
-                </b-form-radio-group>
+                </b-form-input>
               </b-form-group>
 
               <b-form-group
                 id="input-group-2"
-                label="Volume:"
-                label-for="input-2"
+                label="Number:"
+                label-for="input-11"
               >
                 <b-form-input
-                  id="input-2"
-                  v-model="formMic.volume"
-                  placeholder="100"
+                  id="input-11"
+                  v-model="formClassroom.num"
+                  placeholder="1-1-10"
                   required
                 ></b-form-input>
               </b-form-group>
 
-              <b-button
-                type="submit"
-                title="Save Settings"
-                class="btn btn-success me-3"
+                <b-form-group
+                id="input-group-3"
+                label="Size:"
+                label-for="input-12"
               >
-                <b-icon icon="cloud-upload"></b-icon>
-              </b-button>
-              <b-button
-                type="reset"
-                title="Remove Settings"
-                class="btn btn-danger me-3"
-              >
-                <b-icon icon="trash"></b-icon>
-              </b-button>
-            </b-form>
-          </td>
-        </tr>
-        <tr>
-          <th scope="row">Recording Settings</th>
-          <td>
-            <b-form @submit="onSubmitRec" @reset="onResetRec" v-if="show">
-              <b-form-group
-                id="input-group-1"
-                label="Power:"
-                v-slot="{ ariaDescribedby }"
-              >
-                <b-form-radio-group
-                  id="radio-2"
-                  v-model="formRec.recPower"
-                  :aria-describedby="ariaDescribedby"
-                >
-                  <b-form-radio value="on">On</b-form-radio>
-                  <b-form-radio value="off">Off</b-form-radio>
-                </b-form-radio-group>
+                <b-form-input
+                  id="input-12"
+                  v-model="formClassroom.size"
+                  placeholder="0"
+                  required
+                ></b-form-input>
               </b-form-group>
 
               <b-button
@@ -309,8 +279,6 @@ import axios from "axios";
 Vue.use(VueAxios, axios);
 Vue.use(bootstrapVue);
 
-const db_URL_Professors = "http://localhost:4000/get/professors";
-
 export default {
   name: "TechSettingsTable",
   props: {
@@ -318,173 +286,221 @@ export default {
   },
   data() {
     return {
-      formProjector: {
-        projectorPower: [],
-        brightness: 0,
-        contrast: 0,
+      formProfessor: {
+        profname: "",
+        buildingabbr: "",
+        num: 0,
+        settings: {
+          video: {
+            onoff: "",
+            source: "",
+            cable: ""
+          },
+          projectors: [
+            {
+              onoff: "",
+              brightness: "",
+              contrast: ""
+            },
+            {
+              onoff: "",
+              brightness: "",
+              contrast: ""
+            },
+            {
+              onoff: "",
+              brightness: "",
+              contrast: ""
+            },
+            {
+              onoff: "",
+              brightness: "",
+              contrast: ""
+            }
+          ],
+          camera: {
+            onoff: "",
+            tracking: "",
+            zoom: ""
+          },
+          microphone: {
+            onoff: "",
+            volume: ""
+          },
+          recorder: {
+            onoff: ""
+          }
+        },
+        permission: 0,
+        email: "",
       },
-      formVideo: {
-        videoPower: [],
-        source: [],
-        cable: [],
+      formTechnology: {
+        name: "",
+        description: "",
+        category: "",
       },
-      formCamera: {
-        cameraPower: [],
-        tracking: [],
-        zoom: "",
+      formBuilding: {
+        name: "",
+        location: "",
+        abbreviation: "",
       },
-      formMic: {
-        micPower: "",
-        volume: "",
-      },
-      formRec: {
-        recPower: "",
+      formClassroom: {
+        buildingabbr: "",
+        num: "",
+        size: 0,
+        tech: [
+          {
+            id: "",
+            name: "",
+            qty: ""
+          },
+          {
+            id: "",
+            name: "",
+            qty: ""
+          },
+          {
+            id: "",
+            name: "",
+            qty: ""
+          },
+          {
+            id: "",
+            name: "",
+            qty: ""
+          },
+          {
+            id: "",
+            name: "",
+            qty: ""
+          },
+          {
+            id: "",
+            name: "",
+            qty: ""
+          },
+        ],
+        layoutids: [
+          {
+            id: "",
+            name: ""
+          },
+          {
+            id: "",
+            name: ""
+          },
+            {
+            id: "",
+            name: ""
+          }
+        ],
+        recsettings: [1, 2],
       },
       show: true,
       id: "",
     };
   },
   methods: {
-    onSubmitProjector(event) {
+    onSubmitProfessor(event) {
       event.preventDefault();
-      const projInfo = this.formProjector;
-      const patchURL = "http://localhost:4000/patch/professors/" + this.id;
-      const projObj = [
-        {
-          onoff: projInfo.projectorPower,
-          brightness: projInfo.brightness,
-          contrast: projInfo.contrast,
-        },
-        {
-          onoff: projInfo.projectorPower,
-          brightness: projInfo.brightness,
-          contrast: projInfo.contrast,
-        },
-        {
-          onoff: projInfo.projectorPower,
-          brightness: projInfo.brightness,
-          contrast: projInfo.contrast,
-        },
-        {
-          onoff: projInfo.projectorPower,
-          brightness: projInfo.brightness,
-          contrast: projInfo.contrast,
-        },
-      ];
+      const profInfo = this.formProfessor;
+      const postURL = "http://localhost:4000/new/professor";
+      const profObj = {
+          profname: profInfo.profname,
+          buildingabbr: profInfo.buildingabbr,
+          num: profInfo.num,
+          settings: profInfo.settings,
+          permission: profInfo.permission,
+          email: profInfo.email,
+        };
 
-      axios.patch(patchURL, {
-        "settings.projectors": projObj,
-      });
-      alert("Projector Settings Saved");
+      axios.post(postURL, profObj);
+      alert("Professor Submitted");
     },
-    onSubmitVideo(event) {
+    onSubmitTechnology(event) {
       event.preventDefault();
-      const videoInfo = this.formVideo;
-      const patchURL = "http://localhost:4000/patch/professors/" + this.id;
-      const videoObj = {
-        onoff: videoInfo.videoPower,
-        source: videoInfo.source,
-        cable: videoInfo.cable,
+      const techInfo = this.formTechnology;
+      const postURL = "http://localhost:4000/new/tech";
+      const techObj = {
+        name: techInfo.name,
+        description: techInfo.description,
+        category: techInfo.category,
       };
 
-      axios.patch(patchURL, {
-        "settings.video": videoObj,
-      });
-      alert("Video Settings Saved");
+      axios.post(postURL, techObj);
+      alert("Technology Submitted");
     },
-    onSubmitCamera(event) {
+    onSubmitBuilding(event) {
       event.preventDefault();
-      const cameraInfo = this.formCamera;
-      const patchURL = "http://localhost:4000/patch/professors/" + this.id;
-      const cameraObj = {
-        onoff: cameraInfo.cameraPower,
-        tracking: cameraInfo.tracking,
-        zoom: cameraInfo.zoom,
+      const buildingInfo = this.formBuilding;
+      const postURL = "http://localhost:4000/new/building";
+      const buildingObj = {
+        name: buildingInfo.name,
+        location: buildingInfo.location,
+        abbreviation: buildingInfo.abbreviation,
       };
 
-      axios.patch(patchURL, {
-        "settings.camera": cameraObj,
-      });
-      alert("Camera Settings Saved");
+      axios.post(postURL, buildingObj);
+      alert("Building Submitted");
     },
-    onSubmitMic(event) {
+    onSubmitClassroom(event) {
       event.preventDefault();
-      const micInfo = this.formMic;
-      const patchURL = "http://localhost:4000/patch/professors/" + this.id;
-      const micObj = {
-        onoff: micInfo.micPower,
-        volume: micInfo.volume,
+      const roomInfo = this.formClassroom;
+      const postURL = "http://localhost:4000/new/classroom";
+      const roomObj = {
+        buildingabbr: roomInfo.buildingabbr,
+        num: roomInfo.num,
+        size: roomInfo.size,
+        tech: roomInfo.tech,
+        layoutids: roomInfo.layoutids,
+        recsettings: roomInfo.recsettings,
       };
 
-      axios.patch(patchURL, {
-        "settings.microphone": micObj,
-      });
-      alert("Microphone Settings Saved");
+      axios.post(postURL, roomObj);
+      alert("Classroom Submitted");
     },
-    onSubmitRec(event) {
-      event.preventDefault();
-      const recInfo = this.formRec;
-      const patchURL = "http://localhost:4000/patch/professors/" + this.id;
-      const recObj = {
-        onoff: recInfo.recPower,
-      };
-
-      axios.patch(patchURL, {
-        "settings.recorder": recObj,
-      });
-      alert("Recorder Settings Saved");
-    },
-    onResetProjector(event) {
+    onResetProfessor(event) {
       event.preventDefault();
       // Reset our form values
-      this.formProjector.projectorPower = [];
-      this.formProjector.brightness = "";
-      this.formProjector.contrast = "";
+      this.formProfessor.profname = "";
+      this.formProjector.permission = 0;
+      this.formProjector.email = "";
       // Trick to reset/clear native browser form validation state
       this.show = false;
       this.$nextTick(() => {
         this.show = true;
       });
     },
-    onResetVideo(event) {
+    onResetTechnology(event) {
       event.preventDefault();
       // Reset our form values
-      this.formVideo.videoPower = [];
-      this.formVideo.source = [];
-      this.formVideo.cable = [];
+      this.formTechnology.name = "";
+      this.formTechnology.description = "";
+      this.formTechnology.category = "";
       // Trick to reset/clear native browser form validation state
       this.show = false;
       this.$nextTick(() => {
         this.show = true;
       });
     },
-    onResetCamera(event) {
+    onResetBuilding(event) {
       event.preventDefault();
       // Reset our form values
-      this.formCamera.cameraPower = [];
-      this.formCamera.tracking = [];
-      this.formCamera.zoom = "";
+      this.formBuilding.name = "";
+      this.formBuilding.location = "";
+      this.formBuilding.abbreviation = "";
       // Trick to reset/clear native browser form validation state
       this.show = false;
       this.$nextTick(() => {
         this.show = true;
       });
     },
-    onResetMic(event) {
+    onResetClassroom(event) {
       event.preventDefault();
       // Reset our form values
-      this.formMic.micPower = [];
-      this.formMic.volume = "";
-      // Trick to reset/clear native browser form validation state
-      this.show = false;
-      this.$nextTick(() => {
-        this.show = true;
-      });
-    },
-    onResetRec(event) {
-      event.preventDefault();
-      // Reset our form values
-      this.formRec.recPower = [];
+      this.formClassroom.buildingabbr = "";
+      this.formClassroom.num = "";
+      this.formClassroom.size = 0;
       // Trick to reset/clear native browser form validation state
       this.show = false;
       this.$nextTick(() => {
@@ -492,37 +508,7 @@ export default {
       });
     },
   },
-  async mounted() {
-    var resp = await axios.get(db_URL_Professors);
-
-    this.$gapi.currentUser().then((profile) => {
-      var professors = [];
-      professors = resp.data;
-      for (let element of professors) {
-        if (element.email === profile.email) {
-          this.id = element._id;
-          var projectors = [];
-          projectors = element.settings.projectors;
-          var video = element.settings.video;
-          var camera = element.settings.camera;
-          var mic = element.settings.microphone;
-          var rec = element.settings.recorder;
-          this.formProjector.projectorPower = projectors[0].onoff;
-          this.formProjector.brightness = projectors[0].brightness;
-          this.formProjector.contrast = projectors[0].contrast;
-          this.formVideo.videoPower = video.onoff;
-          this.formVideo.source = video.source;
-          this.formVideo.cable = video.cable;
-          this.formCamera.cameraPower = camera.onoff;
-          this.formCamera.tracking = camera.tracking;
-          this.formCamera.zoom = camera.zoom;
-          this.formMic.micPower = mic.onoff;
-          this.formMic.volume = mic.volume;
-          this.formRec.recPower = rec.onoff;
-        }
-      }
-    });
-  },
+  async mounted() {},
 };
 </script>
 <style>
