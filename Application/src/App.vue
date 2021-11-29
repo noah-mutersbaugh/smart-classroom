@@ -38,19 +38,20 @@ export default {
           if (userRoom === room) {
             if (element.email === this.email) {
               if (element.permission === 0) {
+                this.$store.commit("adminLogIn");
                 //alert(JSON.stringify(element));
-                alert(
-                  "Applied " +
-                    element.profname +
-                    "'s settings to room " +
-                    room +
-                    "."
-                );
+                // alert(
+                //   "Applied " +
+                //     element.profname +
+                //     "'s settings to room " +
+                //     room +
+                //     "."
+                // );
                 break;
               }
             }
           } else {
-            alert("User is not at the room, so settings weren't applied.");
+            // alert("User is not at the room, so settings weren't applied.");
           }
         }
       });

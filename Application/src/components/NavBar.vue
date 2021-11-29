@@ -72,8 +72,6 @@ export default {
     window.gapi.signin2.render("google-signin-btn", {
       onsuccess: this.signIn, // note, no "()" here
     });
-    this.$store.commit("changeUser", this.user.name);
-    this.$store.commit("logIn");
   },
   computed: {},
   methods: {
