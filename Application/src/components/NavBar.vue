@@ -1,7 +1,7 @@
 <template>
   <div>
     <b-navbar id="header" toggleable="lg" type="dark">
-      <b-navbar-brand to="/" class="ms-5">
+      <b-navbar-brand to="/" class="ml-5">
         <img alt="GVSU Logo" src="@/assets/gvsu_oneline_RGB_white_1024.png" />
       </b-navbar-brand>
 
@@ -16,7 +16,7 @@
             </template>
             <div
               id="google-signin-btn"
-              class="g-signin2 me-5"
+              class="g-signin2 mr-5"
               data-onsuccess="onSignIn"
               @click="signIn"
             ></div>
@@ -26,28 +26,26 @@
       </b-collapse>
     </b-navbar>
 
-    <h1 class="ms-5">{{ msg }}</h1>
+    <h1 class="ml-5">{{ msg }}</h1>
 
     <b-navbar id="navigation" toggleable="md">
-      <b-navbar-toggle target="nav-collapse2" class="ms-5"></b-navbar-toggle>
+      <b-navbar-toggle target="nav-collapse2" class="ml-5"></b-navbar-toggle>
 
-      <b-collapse id="nav-collapse2" class="ms-5" is-nav>
+      <b-collapse id="nav-collapse2" class="ml-5" is-nav>
         <b-navbar-nav id="nav-list" class="mr-auto">
           <b-nav-item to="/inventory">Inventory</b-nav-item>
           <b-nav-item to="/tech-specs">Tech Specs</b-nav-item>
-          <b-nav-item to="/faq">FAQ</b-nav-item>
-          <!-- <b-nav-item to="/feedback">Feedback</b-nav-item> -->
           <b-nav-item v-show="this.$store.state.loggedIn" to="/tech-settings"
             >Tech Settings</b-nav-item
           >
           <b-nav-item to="/map">Map</b-nav-item>
-          <!-- <b-nav-item to="/faq">FAQ</b-nav-item> -->
-          <!-- <b-nav-item to="/feedback">Feedback</b-nav-item> -->
+          <b-nav-item to="/faq">FAQ</b-nav-item>
+          <b-nav-item to="/feedback">Feedback</b-nav-item>
         </b-navbar-nav>
       </b-collapse>
     </b-navbar>
 
-    <!-- <div>Logged in Status: {{ this.$store.state.loggedIn }}</div> -->
+    <!-- <div>Logged in Status: store - {{ this.$store.state.loggedIn }}</div> -->
   </div>
 </template>
 
@@ -76,15 +74,10 @@ export default {
   mounted() {
     // Explicitly render the google sign-in button. Had to use `window.gapi....` to get past the vue-google-api limitations
     window.gapi.signin2.render("google-signin-btn", {
-      // this is the button "id"
       onsuccess: this.signIn, // note, no "()" here
     });
-  },
-  watch: {
-    // Watch for changes in the store state
-    "$store.state.loggedIn": function () {
-      this.loggedInStatus = this.$store.state.loggedIn;
-    },
+    this.$store.commit("changeUser", this.user.name);
+    this.$store.commit("logIn");
   },
   //computed is here
   computed: {
@@ -124,11 +117,32 @@ export default {
         .signIn()
         .then((user) => {
           console.log("Signed in as %s", user.name);
+          this.$store.commit("changeUser", user.name);
           this.$store.commit("logIn");
         })
         .catch((err) => {
           console.error("Not signed in: %s", err.error);
         });
+    },
+    test(){
+     makeToast(append = false) {
+      this.toastCount++;
+      this.$bvToast.toast(`This is toast number ${this.toastCount}`, {
+        title: "BootstrapVue Toast",
+        message: 'Something went wrong!',
+         type: 'error',
+        autoHideDelay: 5000000,
+        appendToast: append,
+      });
+      this.$bvToast.scucess(`this is goog ${this.toastCount}`, {
+        
+        message: 'everything is good !',
+         type: 'error',
+        autoHideDelay: 5000000,
+        appendToast: append,
+        postion: 'top',
+      });
+     },
     },
     getInfo() {
       this.$gapi.currentUser().then((profile) => {
@@ -155,6 +169,10 @@ export default {
   background-color: #0065a4;
 }
 
+.navbar {
+  padding: 0.5rem 0rem;
+}
+
 .nav-link {
   color: #f9f9f9;
 }
@@ -167,7 +185,7 @@ img {
   background: #f7f7f7;
   border: 1px solid #ccc;
   font-size: 1.2rem;
-  z-index: 9999;
+  z-index: 0;
 }
 
 #nav-list :nth-child(1) > a {
