@@ -35,18 +35,23 @@ export default {
         for (let element of professors) {
           // var userRoom = `${element.buildingabbr}-${element.num}`;
           var userRoom = element.buildingabbr + element.num;
-
-          if (element.email === this.email) {
-            if (element.permission === 0) {
-              this.$store.commit("adminLogIn");
-              if (userRoom === room) {
-                console.log("User is in the room. Apply settings.")
-              } else {
-                // alert("User is not at the room, so settings weren't applied.");
-                console.log("User is not in the room. Did not apply settings.")
+          if (userRoom === room) {
+            if (element.email === this.email) {
+              if (element.permission === 0) {
+                this.$store.commit("adminLogIn");
+                //alert(JSON.stringify(element));
+                // alert(
+                //   "Applied " +
+                //     element.profname +
+                //     "'s settings to room " +
+                //     room +
+                //     "."
+                // );
+                break;
               }
-              break;
             }
+          } else {
+            // alert("User is not at the room, so settings weren't applied.");
           }
         }
       });
