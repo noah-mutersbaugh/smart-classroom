@@ -1,4 +1,4 @@
-About the project:
+<h2>About the project</h2>:
 
 	The Smart Start - Is a personalized Classroom Configuration Solution is a multi-faceted application that will utilize a 
 	web interface, an internal database, and an in-between application. 
