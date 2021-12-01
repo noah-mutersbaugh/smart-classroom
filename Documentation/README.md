@@ -38,7 +38,7 @@ Installation:
 Construction:
 	
 	Data Structure:
-		Front end 
+		Front end: 
 			-Vue.js	
 			-HTML
 			-CSS
