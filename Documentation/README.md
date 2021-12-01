@@ -34,14 +34,14 @@ Construction
 	
 	Data Structure 
 		Front end 
-		```	-Vue.js	
+			-Vue.js	
 			-HTML
 			-CSS
-		```
+		
 		Backend 
-		```	- Vue.js	
+			- Vue.js	
 			- mongoDB
-		```
+		
 	Components
 		
 		Accordion 
@@ -63,11 +63,10 @@ Construction
 			
 Contributors
 Acknowledgements
-Eric
-Hunter
-Dr.jonthan Englsma 
-Mohammad Saleh
-David Powers
-Noah mutersbaugh
-Contact Information
-License Information
+Eric,
+Hunter,
+Dr.jonthan Englsma, 
+Mohammad Saleh,
+David Powers,
+Noah mutersbaugh,
+
