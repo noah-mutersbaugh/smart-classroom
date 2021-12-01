@@ -1,6 +1,6 @@
 <template>
   <div id="TechSettings" class="p-3 m-3 bg-light bg-gradient rounded">
-    <div>{{this.$store.state.adminLoggedIn}}</div>
+    <!-- <div>{{this.$store.state.adminLoggedIn}}</div> -->
     <table
       v-show="this.$store.state.adminLoggedIn"
       id="settings-table"
@@ -502,6 +502,7 @@ export default {
       professors = resp.data;
       for (let element of professors) {
         if (element.email === profile.email) {
+          console.log(element);
           this.id = element._id;
           var projectors = [];
           projectors = element.settings.projectors;
