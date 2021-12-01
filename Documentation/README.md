@@ -1,4 +1,4 @@
-<h2>About the project</h2>:
+<h2>About the project</h2>
 
 	The Smart Start - Is a personalized Classroom Configuration Solution is a multi-faceted application that will utilize a 
 	web interface, an internal database, and an in-between application. 
@@ -6,7 +6,7 @@
 	QR technology will be used to identify that a faculty member has entered a classroom and would like current control of the devices within,
 	and will allow them to make adjustments to technology devices throughout the classroom that have been set with their preferences.
 
-Getting Started:
+<h2>Getting Started</h2>
 
 	This project is intended to bring Internt of Things to the classrom.
 	As professors find new and creative ways to teach the pioners of the future, 
@@ -22,10 +22,10 @@ Getting Started:
 	and is easy to pick up and integrate with other libraries or existing projects. On the other hand, Vue is also perfectly capable of powering sophisticated Single-Page Applications when used in combination with modern tooling and supporting libraries.
 		
 	
-Prerequisites:
+<h2>Prerequisites:</h2>
 
 		-mongoDB,Linux VM for hosting, node and NPM 
-Installation:
+<h2>Installation:</h2>
 
 	Project setup
 		npm install
@@ -35,19 +35,19 @@ Installation:
 		npm run build
 		Lints and fixes files
 		npm run lint
-Construction:
+<h2>Construction:</h2>
 	
-	Data Structure:
+<h3>	Data Structure:</h3>
 		Front end: 
 			-Vue.js	
 			-HTML
 			-CSS
 		
-		Backend: 
+<h3>		Backend: </h3>
 			- Vue.js	
 			- mongoDB
 		
-	Components:
+<h2>	Components:</h2>
 		
 		Accordion: 
 			- customizable collaspsible panel/ a library build		
@@ -66,7 +66,7 @@ Construction:
 		Settings:
 			-There is adjustable settings for video,projector,microphone,recorder
 			
-Contributors:  
+<h2>Contributors:  </h2>
 Acknowledgements
 Eric,
 Hunter,
