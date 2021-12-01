@@ -61,7 +61,7 @@ Construction
 		Settings
 			-There is adjustable settings for video,projector,microphone,recorder
 			
-Contributors
+Contributors:  
 Acknowledgements
 Eric,
 Hunter,
