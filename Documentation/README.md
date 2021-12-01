@@ -33,13 +33,15 @@ Installation
 Construction
 	
 	Data Structure 
-		front end 
-			-Vue.js	
+		Front end 
+		```	-Vue.js	
 			-HTML
 			-CSS
-		backend 
-			- Vue.js	
+		```
+		Backend 
+		```	- Vue.js	
 			- mongoDB
+		```
 	Components
 		
 		Accordion 
@@ -66,6 +68,6 @@ Hunter
 Dr.jonthan Englsma 
 Mohammad Saleh
 David Powers
-Noah Muterhbugh
+Noah mutersbaugh
 Contact Information
 License Information
