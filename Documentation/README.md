@@ -1,5 +1,5 @@
 <h2>About the project</h2>
-
+<h3>
 	The Smart Start - Is a personalized Classroom Configuration Solution is a multi-faceted 
 	application that will utilize a web interface, an internal database, and an in-between application. 
 	The combination of these layers will provide a fluid transition from settings that 
@@ -8,7 +8,7 @@
 	classroom and would like current control of the devices within,
 	and will allow them to make adjustments to technology devices throughout the classroom 
 	that have been set with their preferences.
-
+</h3>
 <h2>Getting Started</h2>
 
 	This project is intended to bring Internt of Things to the classrom.
