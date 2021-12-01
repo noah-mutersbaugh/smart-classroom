@@ -24,7 +24,8 @@ Vue.config.productionTip = false
 const store = new Vuex.Store({
     state: {
         loggedIn: undefined,
-        user: undefined
+        adminLoggedIn: undefined,
+        user: undefined,
     },
     mutations: {
         logOut(state) {
@@ -35,6 +36,12 @@ const store = new Vuex.Store({
         },
         changeUser(state, user) {
             state.user = user;
+        },
+        adminLogIn(state) {
+            state.adminLoggedIn = true;
+        },
+        adminLogOut(state) {
+            state.adminLoggedIn = false;
         }
     }
 });

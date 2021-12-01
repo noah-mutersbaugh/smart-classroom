@@ -44,9 +44,8 @@
         <b-navbar-nav id="nav-list" class="mr-auto">
           <b-nav-item to="/inventory">Inventory</b-nav-item>
           <b-nav-item to="/tech-specs">Tech Specs</b-nav-item>
-          <b-nav-item v-show="this.$store.state.loggedIn" to="/tech-settings"
-            >Tech Settings</b-nav-item
-          >
+          <b-nav-item v-show="this.$store.state.loggedIn" to="/tech-settings">Tech Settings</b-nav-item>
+          <b-nav-item v-show="this.$store.state.admin" to="/admin">Admin</b-nav-item>
           <b-nav-item to="/map">Map</b-nav-item>
           <b-nav-item to="/faq">FAQ</b-nav-item>
           <b-nav-item to="/feedback">Feedback</b-nav-item>
@@ -72,8 +71,6 @@ export default {
     window.gapi.signin2.render("google-signin-btn", {
       onsuccess: this.signIn, // note, no "()" here
     });
-    this.$store.commit("changeUser", this.user.name);
-    this.$store.commit("logIn");
   },
   computed: {},
   methods: {
