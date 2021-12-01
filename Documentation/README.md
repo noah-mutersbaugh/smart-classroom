@@ -27,7 +27,7 @@
 	when used in combination with modern tooling and supporting libraries.
 		
 	
-<h2>Prerequisites:</h2>
+<h3>Prerequisites:</h3>
 
 	mongoDB,Linux VM for hosting, node and NPM 
 <h2>Installation:</h2>
