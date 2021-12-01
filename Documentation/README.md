@@ -27,7 +27,7 @@
 		-mongoDB,Linux VM for hosting, node and NPM 
 <h2>Installation:</h2>
 
-	Project setup
+<h3>	Project setup</h3>
 		npm install
 		Compiles and hot-reloads for development
 		npm run serve
@@ -38,7 +38,7 @@
 <h2>Construction:</h2>
 	
 <h3>	Data Structure:</h3>
-		Front end: 
+	<h3>	Front end: </h3>
 			-Vue.js	
 			-HTML
 			-CSS
