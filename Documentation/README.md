@@ -1,18 +1,20 @@
-About the project
-	The Smart Start - Is a personalized Classroom Configuration Solution is a multi-faceted application that will utilize a 
+About the project:
+
+'''	The Smart Start - Is a personalized Classroom Configuration Solution is a multi-faceted application that will utilize a 
 	web interface, an internal database, and an in-between application. 
 	The combination of these layers will provide a fluid transition from settings that are pre-set to a realized classroom integrating those pre-set settings. 
 	QR technology will be used to identify that a faculty member has entered a classroom and would like current control of the devices within,
 	and will allow them to make adjustments to technology devices throughout the classroom that have been set with their preferences.
-Getting Started
-	This project is intended to bring Internt of Things to the classrom.
+'''
+Getting Started:
+'''	This project is intended to bring Internt of Things to the classrom.
 	As professors find new and creative ways to teach the pioners of the future, 
 	as professors stand at the forefront they'll need better equipment.
 	Smart classroom is a proof of concept project that was introdued by Eric, hunter (last names)  of the IT department 
 	as a way to make a classroom intergrated with a web protal with all the classroom technology
 	located in and single and orginized place. Allaccesable with is a single sign on, in other words, just scan the QR code,
 	quickly adjust critical classroom components from the portal and teach away.
-	
+'''	
 	Vue is a progressive framework for building user interfaces. 
 	Unlike other monolithic frameworks, Vue is designed from the ground up to be incrementally 
 	adoptable. The core library is focused on the view layer only,
