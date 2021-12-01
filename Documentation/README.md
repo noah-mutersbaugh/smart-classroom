@@ -22,9 +22,11 @@ Getting Started:
 	and is easy to pick up and integrate with other libraries or existing projects. On the other hand, Vue is also perfectly capable of powering sophisticated Single-Page Applications when used in combination with modern tooling and supporting libraries.
 		
 	
-Prerequisites
+Prerequisites:
+
 		-mongoDB,Linux VM for hosting, node and NPM 
-Installation
+Installation:
+
 	Project setup
 		npm install
 		Compiles and hot-reloads for development
@@ -33,35 +35,35 @@ Installation
 		npm run build
 		Lints and fixes files
 		npm run lint
-Construction
+Construction:
 	
-	Data Structure 
+	Data Structure:
 		Front end 
 			-Vue.js	
 			-HTML
 			-CSS
 		
-		Backend 
+		Backend: 
 			- Vue.js	
 			- mongoDB
 		
-	Components
+	Components:
 		
-		Accordion 
+		Accordion: 
 			- customizable collaspsible panel/ a library build		
-		FAQ
+		FAQ:
 			- Answers from the frequently asked question from the Professors and students/non-faculty
 				
-		Feedback
+		Feedback:
 			- The feedback tab on the navegation bar is a goolgle forms.This provides a platform of users to share their input about the website
-		inventory
+		Inventory:
 			- The tab on the navegation bar displays each produt available in each classroom.
-		Map
+		Map:
 			-The Smart Classrooms are located at the Allendale campus in rooms MAK A-1-111, MAK B-1-110, and at our Grand Rapids campus at DEV E-1-121.
 	 
-		Navigation bar
-			-	the navagation bar displays the tab for the inventory, tech settings, map FAQ, Feedback 
-		Settings
+		Navigation bar:
+			-The navagation bar displays the tab for the inventory, tech settings, map FAQ, Feedback 
+		Settings:
 			-There is adjustable settings for video,projector,microphone,recorder
 			
 Contributors:  
