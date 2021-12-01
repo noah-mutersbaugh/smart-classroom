@@ -29,7 +29,7 @@
 	
 <h2>Prerequisites:</h2>
 
-		-mongoDB,Linux VM for hosting, node and NPM 
+	mongoDB,Linux VM for hosting, node and NPM 
 <h2>Installation:</h2>
 
 <h3>	Project setup</h3>
