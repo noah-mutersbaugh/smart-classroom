@@ -1,14 +1,14 @@
 <h2>About the project</h2>
-<h4>
-	The Smart Start - Is a personalized Classroom Configuration Solution is a multi-faceted 
+
+<h4>	The Smart Start - Is a personalized Classroom Configuration Solution is a multi-faceted 
 	application that will utilize a web interface, an internal database, and an in-between application. 
 	The combination of these layers will provide a fluid transition from settings that 
 	are pre-set to a realized classroom integrating those pre-set settings. 
 	QR technology will be used to identify that a faculty member has entered a 
 	classroom and would like current control of the devices within,
 	and will allow them to make adjustments to technology devices throughout the classroom 
-	that have been set with their preferences.
-</h4>
+	that have been set with their preferences.</h4>
+
 <h2>Getting Started</h2>
 
 	This project is intended to bring Internt of Things to the classrom.
