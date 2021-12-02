@@ -16,6 +16,11 @@
 </template>
 
 <script>
+/*
+* This script will get information from the Technology collection
+* in the MongoDB database. It will then place that JSON inside of
+* the data function to be used in the accordion.
+*/
 import Vue from 'vue'
 import bootstrapVue from 'bootstrap-vue'
 import VueAxios from 'vue-axios';
@@ -32,7 +37,8 @@ export default {
             technologies: []
         };
     },
-    async mounted() {
+    // created is used when fetching data
+    async created() {
         const resp = await axios.get(db_URL);
         
         this.technologies = resp.data;

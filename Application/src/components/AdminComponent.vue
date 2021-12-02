@@ -271,6 +271,11 @@
 </template>
 
 <script>
+/*
+* This script will get/place/delete information from multiple collections
+* in the MongoDB database. The purpose of this script is to implement CRUD.
+* This will allow the user to modify the database through the web app.
+*/
 import Vue from "vue";
 import bootstrapVue from "bootstrap-vue";
 import VueAxios from "vue-axios";
@@ -284,6 +289,7 @@ export default {
   props: {
     msg: String,
   },
+  // This is the format conversion from the form -> MongoDB database
   data() {
     return {
       formProfessor: {
@@ -400,11 +406,13 @@ export default {
       id: "",
     };
   },
+  // These methods will convert the form information to alter data in the database
   methods: {
     onSubmitProfessor(event) {
       event.preventDefault();
       const profInfo = this.formProfessor;
       const postURL = "http://localhost:4000/new/professor";
+      // Builds the format for professors
       const profObj = {
           profname: profInfo.profname,
           buildingabbr: profInfo.buildingabbr,
@@ -421,6 +429,7 @@ export default {
       event.preventDefault();
       const techInfo = this.formTechnology;
       const postURL = "http://localhost:4000/new/tech";
+      // Builds the format for technology
       const techObj = {
         name: techInfo.name,
         description: techInfo.description,
@@ -434,6 +443,7 @@ export default {
       event.preventDefault();
       const buildingInfo = this.formBuilding;
       const postURL = "http://localhost:4000/new/building";
+      // Builds the format for buildings
       const buildingObj = {
         name: buildingInfo.name,
         location: buildingInfo.location,
@@ -447,6 +457,7 @@ export default {
       event.preventDefault();
       const roomInfo = this.formClassroom;
       const postURL = "http://localhost:4000/new/classroom";
+      // Builds the format for classrooms
       const roomObj = {
         buildingabbr: roomInfo.buildingabbr,
         num: roomInfo.num,
@@ -508,6 +519,7 @@ export default {
       });
     },
   },
+  // Unusued mounted decleration for future use
   async mounted() {},
 };
 </script>

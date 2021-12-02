@@ -13,12 +13,13 @@ dbserver.client.connect(err => {
 
     //Get Classrooms
     const roomcollection = dbserver.client.db("smartclassroom").collection("classrooms");
-
+    
     app.use(cors(corsOptions));
     app.use(express.json());
     app.options('/get/classrooms', cors());
 
     app.get('/get/classrooms', (req, res) => {
+        // MongoDB Specific Query
         roomcollection.find({}).toArray(function(err, result) {
             if (err) throw err;
             console.log(result);
@@ -30,6 +31,7 @@ dbserver.client.connect(err => {
     //Get Buildings
     const buildingcollection = dbserver.client.db("smartclassroom").collection("buildings");
     app.get('/get/buildings', (req, res) => {
+        // MongoDB Specific Query
         buildingcollection.find({}).toArray(function(err, result) {
             if (err) throw err;
             console.log(result);
@@ -41,6 +43,7 @@ dbserver.client.connect(err => {
     //Get Cameras
     const cameracollection = dbserver.client.db("smartclassroom").collection("cameras");
     app.get('/get/cameras', (req, res) => {
+        // MongoDB Specific Query
         cameracollection.find({}).toArray(function(err, result) {
             if (err) throw err;
             console.log(result);
@@ -52,6 +55,7 @@ dbserver.client.connect(err => {
     //Get Settings
     const settingscollection = dbserver.client.db("smartclassroom").collection("settings");
     app.get('/get/settings', (req, res) => {
+        // MongoDB Specific Query
         settingscollection.find({}).toArray(function(err, result) {
             if (err) throw err;
             console.log(result);
@@ -63,6 +67,7 @@ dbserver.client.connect(err => {
     //Get Microphones
     const microphonecollection = dbserver.client.db("smartclassroom").collection("microphones");
     app.get('/get/microphones', (req, res) => {
+        // MongoDB Specific Query
         microphonecollection.find({}).toArray(function(err, result) {
             if (err) throw err;
             console.log(result);
@@ -74,6 +79,7 @@ dbserver.client.connect(err => {
     //Get Professors
     const professorcollection = dbserver.client.db("smartclassroom").collection("professors");
     app.get('/get/professors', (req, res) => {
+        // MongoDB Specific Query (limits the query to the first entry)
         professorcollection.find({}).limit(1).toArray(function(err, result) {
             if (err) throw err;
             console.log(result);
@@ -85,6 +91,7 @@ dbserver.client.connect(err => {
     //Get Technology
     const techcollection = dbserver.client.db("smartclassroom").collection("technology");
     app.get('/get/tech', (req, res) => {
+        // MongoDB Specific Query
         techcollection.find({}).toArray(function(err, result) {
             if (err) throw err;
             console.log(result);
@@ -99,6 +106,7 @@ dbserver.client.connect(err => {
         var updateObject = req.body;
         var id = req.params.id;
         console.log(req.body);
+        // MongoDB Specific Query
         professorcollection.updateOne({ _id: ObjectId(id) }, { $set: updateObject });
         res.send("Updated");
     });
@@ -107,6 +115,7 @@ dbserver.client.connect(err => {
         var updateObject = req.body;
         var id = req.params.id;
         console.log(req.body);
+        // MongoDB Specific Query
         buildingcollection.updateOne({ _id: ObjectId(id) }, { $set: updateObject });
         res.send("Updated");
     });
@@ -115,6 +124,7 @@ dbserver.client.connect(err => {
         var updateObject = req.body;
         var id = req.params.id;
         console.log(req.body);
+        // MongoDB Specific Query
         cameracollection.updateOne({ _id: ObjectId(id) }, { $set: updateObject });
         res.send("Updated");
     });
@@ -123,6 +133,7 @@ dbserver.client.connect(err => {
         var updateObject = req.body;
         var id = req.params.id;
         console.log(req.body);
+        // MongoDB Specific Query
         roomcollection.updateOne({ _id: ObjectId(id) }, { $set: updateObject });
         res.send("Updated");
     });
@@ -131,6 +142,7 @@ dbserver.client.connect(err => {
         var updateObject = req.body;
         var id = req.params.id;
         console.log(req.body);
+        // MongoDB Specific Query
         techcollection.updateOne({ _id: ObjectId(id) }, { $set: updateObject });
         res.send("Updated");
     });
@@ -144,6 +156,7 @@ dbserver.client.connect(err => {
     app.delete('/delete/technology/:id', (req, res) => {
         var id = req.params.id;
         console.log("Deleted ID: " + id);
+        // MongoDB Specific Query
         techcollection.deleteOne({ _id: ObjectId(id) });
         res.send("Deleted");
     });
@@ -151,6 +164,7 @@ dbserver.client.connect(err => {
     app.delete('/delete/classrooms/:id', (req, res) => {
         var id = req.params.id;
         console.log("Deleted ID: " + id);
+        // MongoDB Specific Query
         roomcollection.deleteOne({ _id: ObjectId(id) });
         res.send("Deleted");
     });
@@ -158,6 +172,7 @@ dbserver.client.connect(err => {
     app.delete('/delete/professors/:id', (req, res) => {
         var id = req.params.id;
         console.log("Deleted ID: " + id);
+        // MongoDB Specific Query
         professorcollection.deleteOne({ _id: ObjectId(id) });
         res.send("Deleted");
     });
@@ -165,6 +180,7 @@ dbserver.client.connect(err => {
     app.delete('/delete/buildings/:id', (req, res) => {
         var id = req.params.id;
         console.log("Deleted ID: " + id);
+        // MongoDB Specific Query
         buildingcollection.deleteOne({ _id: ObjectId(id) });
         res.send("Deleted");
     });
@@ -172,6 +188,7 @@ dbserver.client.connect(err => {
     app.delete('/delete/cameras/:id', (req, res) => {
         var id = req.params.id;
         console.log("Deleted ID: " + id);
+        // MongoDB Specific Query
         cameracollection.deleteOne({ _id: ObjectId(id) });
         res.send("Deleted");
     });
@@ -179,6 +196,7 @@ dbserver.client.connect(err => {
     app.delete('/delete/microphones/:id', (req, res) => {
         var id = req.params.id;
         console.log("Deleted ID: " + id);
+        // MongoDB Specific Query
         microphonecollection.deleteOne({ _id: ObjectId(id) });
         res.send("Deleted");
     });
@@ -186,6 +204,7 @@ dbserver.client.connect(err => {
     app.delete('/delete/settings/:id', (req, res) => {
         var id = req.params.id;
         console.log("Deleted ID: " + id);
+        // MongoDB Specific Query
         settingscollection.deleteOne({ _id: ObjectId(id) });
         res.send("Deleted");
     });

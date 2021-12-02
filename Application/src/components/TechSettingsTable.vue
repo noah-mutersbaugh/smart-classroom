@@ -303,6 +303,11 @@
 </template>
 
 <script>
+/*
+* This script will get/place/delete information from multiple collections
+* in the MongoDB database. The purpose of this script is to implement CRUD.
+* This will allow the user to modify the database through the web app.
+*/
 import Vue from "vue";
 import bootstrapVue from "bootstrap-vue";
 import VueAxios from "vue-axios";
@@ -318,6 +323,7 @@ export default {
   props: {
     msg: String,
   },
+  // This is the format conversion from the form -> MongoDB database
   data() {
     return {
       formProjector: {
@@ -346,11 +352,13 @@ export default {
       id: "",
     };
   },
+  // These methods will convert the form information to alter data in the database
   methods: {
     onSubmitProjector(event) {
       event.preventDefault();
       const projInfo = this.formProjector;
       const patchURL = "http://localhost:4000/patch/professors/" + this.id;
+      // Builds the format for professors & projectors
       const projObj = [
         {
           onoff: projInfo.projectorPower,
@@ -373,7 +381,7 @@ export default {
           contrast: projInfo.contrast,
         },
       ];
-
+      // Patch updates the entry in the database
       axios.patch(patchURL, {
         "settings.projectors": projObj,
       });
@@ -383,12 +391,13 @@ export default {
       event.preventDefault();
       const videoInfo = this.formVideo;
       const patchURL = "http://localhost:4000/patch/professors/" + this.id;
+      // Builds the format for professors & video source
       const videoObj = {
         onoff: videoInfo.videoPower,
         source: videoInfo.source,
         cable: videoInfo.cable,
       };
-
+      // Patch updates the entry in the database
       axios.patch(patchURL, {
         "settings.video": videoObj,
       });
@@ -398,12 +407,13 @@ export default {
       event.preventDefault();
       const cameraInfo = this.formCamera;
       const patchURL = "http://localhost:4000/patch/professors/" + this.id;
+      // Builds the format for professors & cameras
       const cameraObj = {
         onoff: cameraInfo.cameraPower,
         tracking: cameraInfo.tracking,
         zoom: cameraInfo.zoom,
       };
-
+      // Patch updates the entry in the database
       axios.patch(patchURL, {
         "settings.camera": cameraObj,
       });
@@ -413,11 +423,12 @@ export default {
       event.preventDefault();
       const micInfo = this.formMic;
       const patchURL = "http://localhost:4000/patch/professors/" + this.id;
+      // Builds the format for professors & microphones
       const micObj = {
         onoff: micInfo.micPower,
         volume: micInfo.volume,
       };
-
+      // Patch updates the entry in the database
       axios.patch(patchURL, {
         "settings.microphone": micObj,
       });
@@ -427,10 +438,11 @@ export default {
       event.preventDefault();
       const recInfo = this.formRec;
       const patchURL = "http://localhost:4000/patch/professors/" + this.id;
+      // Builds the format for professors & Recorder
       const recObj = {
         onoff: recInfo.recPower,
       };
-
+      // Patch updates the entry in the database
       axios.patch(patchURL, {
         "settings.recorder": recObj,
       });
@@ -494,7 +506,8 @@ export default {
       });
     },
   },
-  async mounted() {
+  // created is used when fetching data
+  async created() {
     var resp = await axios.get(db_URL_Professors);
 
     this.$gapi.currentUser().then((profile) => {
