@@ -49,6 +49,7 @@ const routes = [{
             import ( /* webpackChunkName: "about" */ '../views/TechSettings.vue')
     },
     {
+<<<<<<< HEAD
         path: '/parse-url',
         name: 'parseURL',
         // route level code-splitting
@@ -56,6 +57,12 @@ const routes = [{
         // which is lazy-loaded when the route is visited.
         component: () =>
             import ( /* webpackChunkName: "about" */ '../views/parseURL.vue')
+=======
+        path: '/admin',
+        name: 'Admin',
+        component: () =>
+            import ('../views/Admin.vue')
+>>>>>>> 6271ba8459ea6e53ed4e1525d5eb2d33aa7b5ad5
     }
 
 ]

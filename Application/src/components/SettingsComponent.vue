@@ -16,7 +16,7 @@ add button for the settings remove accordion
                <button class ="btn btn-default"> Camera Settings </button>
                <button class ="btn btn-default"> Video output </button>
                <button class ="btn btn-default"> Record Settings </button>
-               <button class ="btn btn-default"> Document reeader Settings </button>
+               <button class ="btn btn-default"> Document reader Settings </button>
 
                <!--<a class="btn-default" href="#" >Mic Settings</a>
                  input class="btn btn-default" type="button" value="input"

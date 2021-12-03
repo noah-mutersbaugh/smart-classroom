@@ -8,6 +8,7 @@
       <b-navbar-toggle target="nav-collapse1"></b-navbar-toggle>
 
       <b-collapse id="nav-collapse1" is-nav>
+<<<<<<< HEAD
         <b-navbar-nav class="ms-auto mx-5">
           <b-nav-item-dropdown right>
             <!-- Using 'button-content' slot -->
@@ -15,12 +16,34 @@
               <em>User</em>
             </template>
             <div
+=======
+        <b-navbar-nav class="ml-auto mr-5">
+          <b-nav-item-dropdown
+            id="profile-dropdown"
+            v-bind:text="
+              this.$store.state.loggedIn
+                ? `Logged in as ${this.$store.state.user}`
+                : 'Log In'
+            "
+            right
+          >
+            <div
+              v-show="!this.$store.state.loggedIn"
+>>>>>>> 6271ba8459ea6e53ed4e1525d5eb2d33aa7b5ad5
               id="google-signin-btn"
               class="g-signin2 mr-5"
               data-onsuccess="onSignIn"
               @click="signIn"
             ></div>
+<<<<<<< HEAD
             <b-nav-item @click="logOut()">Log Out</b-nav-item>
+=======
+            <b-dropdown-item
+              v-show="this.$store.state.loggedIn"
+              @click="logOut()"
+              >Log Out</b-dropdown-item
+            >
+>>>>>>> 6271ba8459ea6e53ed4e1525d5eb2d33aa7b5ad5
           </b-nav-item-dropdown>
         </b-navbar-nav>
       </b-collapse>
@@ -35,9 +58,14 @@
         <b-navbar-nav id="nav-list" class="mr-auto">
           <b-nav-item to="/inventory">Inventory</b-nav-item>
           <b-nav-item to="/tech-specs">Tech Specs</b-nav-item>
+<<<<<<< HEAD
           <b-nav-item v-show="this.$store.state.loggedIn" to="/tech-settings"
             >Tech Settings</b-nav-item
           >
+=======
+          <b-nav-item v-show="this.$store.state.loggedIn" to="/tech-settings">Tech Settings</b-nav-item>
+          <b-nav-item v-show="this.$store.state.admin" to="/admin">Admin</b-nav-item>
+>>>>>>> 6271ba8459ea6e53ed4e1525d5eb2d33aa7b5ad5
           <b-nav-item to="/map">Map</b-nav-item>
           <b-nav-item to="/faq">FAQ</b-nav-item>
           <b-nav-item to="/feedback">Feedback</b-nav-item>
@@ -60,6 +88,7 @@ export default {
     msg: String,
   },
   data: function () {
+<<<<<<< HEAD
     return {
       loggedInStatus: undefined,
 	  thisIsSmartclass: true,
@@ -70,6 +99,9 @@ export default {
     this.$gapi.isSignedIn().then((localLoggedInStatus) => {
       this.$store.commit(localLoggedInStatus ? "logIn" : "logOut");
     });
+=======
+    return {};
+>>>>>>> 6271ba8459ea6e53ed4e1525d5eb2d33aa7b5ad5
   },
   mounted() {
     // Explicitly render the google sign-in button. Had to use `window.gapi....` to get past the vue-google-api limitations
@@ -79,6 +111,7 @@ export default {
     this.$store.commit("changeUser", this.user.name);
     this.$store.commit("logIn");
   },
+<<<<<<< HEAD
   //computed is here
   computed: {
 	
@@ -111,6 +144,9 @@ export default {
 	 },
   },
 
+=======
+  computed: {},
+>>>>>>> 6271ba8459ea6e53ed4e1525d5eb2d33aa7b5ad5
   methods: {
     signIn() {
       this.$gapi

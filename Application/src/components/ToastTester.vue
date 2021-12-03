@@ -6,6 +6,7 @@
 </template>
 
 <script>
+<<<<<<< HEAD
 import {createApp} from 'vue';
 import VueToast from 'vue-toast-notification';
 // Import one of the available themes
@@ -14,6 +15,8 @@ import 'vue-toast-notification/dist/theme-sugar.css';
 const app = createApp({});
 app.use(VueToast);
 app.mount('#app');
+=======
+>>>>>>> 6271ba8459ea6e53ed4e1525d5eb2d33aa7b5ad5
 export default {
   data() {
     return {
@@ -25,6 +28,7 @@ export default {
       this.toastCount++;
       this.$bvToast.toast(`This is toast number ${this.toastCount}`, {
         title: "BootstrapVue Toast",
+<<<<<<< HEAD
         message: 'Something went wrong!',
          type: 'error',
         autoHideDelay: 5000000,
@@ -42,10 +46,22 @@ export default {
   },
 };
 
+=======
+        autoHideDelay: 50000,
+        appendToast: append,
+      });
+    },
+  },
+};
+>>>>>>> 6271ba8459ea6e53ed4e1525d5eb2d33aa7b5ad5
 </script>
 
 <style scoped>
 .b-toast {
   z-index: 100;
 }
+<<<<<<< HEAD
 </style>
+=======
+</style>
+>>>>>>> 6271ba8459ea6e53ed4e1525d5eb2d33aa7b5ad5

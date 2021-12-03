@@ -21,6 +21,10 @@
 </template>
 
 <script>
+/*
+* This script will build and allow the population of drop down selections
+* for both the building and classrooms of the University.
+*/
 import Vue from 'vue'
 import bootstrapVue from 'bootstrap-vue'
 import VueAxios from 'vue-axios';
@@ -39,7 +43,8 @@ export default {
             classrooms: []
         };
     },
-    async mounted() {
+    // created is used when fetching data
+    async created() {
         var resp = await axios.get(db_URL_Buildings);
 
         this.buildings = resp.data;

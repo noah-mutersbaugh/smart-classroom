@@ -46,6 +46,9 @@
 </template>
 
 <script>
+/*
+* This script will build and allow the population of classroom inventory
+*/
 import VueAxios from "vue-axios";
 import Vue from "vue";
 import axios from "axios";
@@ -71,7 +74,8 @@ export default {
       items: [],
     };
   },
-  async mounted() {
+  // created is used when fetching data
+  async created() {
     const resp = await axios.get(db_URL);
 
     this.messages = resp.data;

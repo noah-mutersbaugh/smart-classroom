@@ -1,0 +1,74 @@
+<h2>About the project:</h2>
+
+The Smart Start - Is a personalized Classroom Configuration Solution is a multi-faceted application that will utilize a web interface, an internal database, and an in-between application. The combination of these layers will provide a fluid transition from settings that are pre-set to a realized classroom integrating those pre-set settings. QR technology will be used to identify that a faculty member has entered a classroom and would like current control of the devices within, and will allow them to make adjustments to technology devices throughout the classroom that have been set with their preferences.
+
+<h2>Getting Started:</h2>
+
+This project is intended to bring Internt of Things to the classrom. As professors find new and creative ways to teach the pioners of the future, as professors stand at the forefront they'll need better equipment. Smart classroom is a proof of concept project that was introdued by Eric, hunter (last names)  of the IT department as a way to make a classroom intergrated with a web protal with all the classroom technology located in and single and orginized place. Allaccesable with is a single sign on, in other words, just scan the QR code, quickly adjust critical classroom components from the portal and teach away.
+
+Vue is a progressive framework for building user interfaces. Unlike other monolithic frameworks, Vue is designed from the ground up to be incrementally 
+adoptable. The core library is focused on the view layer only, and is easy to pick up and integrate with other libraries or existing projects. On the other hand, Vue is also perfectly capable of powering sophisticated Single-Page Applications when used in combination with modern tooling and supporting libraries.
+		
+	
+<h2>Prerequisites:</h3>
+
+```mongoDB,Linux VM for hosting, node and NPM ```
+
+<h2>Installation:</h2>
+
+<h3>Project setup:</h3>	
+
+
+		    	-npm install
+		    
+			-Compiles and hot-reloads for development
+			
+			-npm run serve
+			
+			-Compiles and minifies for production
+			
+			-npm run build
+			
+			-Lints and fixes files
+			
+			-npm run lint
+			
+<h2>Construction:</h2>
+	
+<h3>	Data Structure:</h3>
+	<h4>	Front end: </h4>
+			Vue.js,	
+			HTML,
+			CSS
+		
+<h4>		Backend: </h4>
+			 Vue.js,	
+			 mongoDB
+		
+<h2>Components:</h2>
+		
+<h4>Accordion: </h4>
+	 Customizable collaspsible panel/ a library build		
+<h4>FAQ:</h4>
+	Answers from the frequently asked question from the Professors and students/non-faculty
+				
+<h4>Feedback:</h4>
+	The feedback tab on the navegation bar is a goolgle forms. This provides a platform of users to share their input about the website
+<h4>Inventory:</h4>
+	The tab on the navegation bar displays each produt available in each classroom.
+<h4>Map:</h4>
+	The Smart Classrooms are located at the Allendale campus in rooms MAK A-1-111, MAK B-1-110, and at our Grand Rapids campus at DEV E-1-121.
+<h4>Navigation bar:</h4>
+	The navagation bar displays the tab for the inventory, tech settings, map FAQ, Feedback 
+<h4>Settings:</h4>
+	There is adjustable settings for video,projector,microphone,recorder
+			
+<h2>Contributors:  </h2>
+Acknowledgements
+Eric,
+Hunter,
+Dr.jonthan Englsma, 
+Mohammad Saleh,
+David Powers,
+Noah mutersbaugh,
+

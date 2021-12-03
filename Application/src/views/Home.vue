@@ -1,6 +1,7 @@
 <template>
   <div class="d-flex flex-column">
     <NavBar msg="GVSU Smart Classrooms" />
+    <!-- <ToastTester/> -->
     <div class="container p-4 mt-4 bg-gradient bg-light">
       <div class="row row-cols-1 row-cols-md-2 g-4 justify-content-center">
         <div class="col">
@@ -43,14 +44,14 @@
           <Card title="FAQ" body="This is where you should go to see the answers to Frequently Asked Questions." link="faq" link_desc="To FAQ" />
         </div>
 
-        <!-- <div class="col">
+        <div class="col">
           <Card
             title="Feedback"
             body="See a problem with the page? Would you like to have access to a new technology in the classroom? Let us know!"
             link="feedback"
             link_desc="To Feedback"
           />
-        </div> -->
+        </div>
       </div>
     </div>
   </div>
@@ -60,7 +61,7 @@
 // @ is an alias to /src
 import NavBar from "@/components/NavBar.vue";
 import Card from "@/components/Card.vue";
-
+// import ToastTester from "@/components/ToastTester.vue";
 
 
 export default {
@@ -68,6 +69,7 @@ export default {
   components: {
     NavBar,
     Card,
+    // ToastTester
   },
 };
 </script>
