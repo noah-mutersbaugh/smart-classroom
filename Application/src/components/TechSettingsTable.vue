@@ -1,6 +1,8 @@
 <template>
   <div id="TechSettings" class="p-3 m-3 bg-light bg-gradient rounded">
+    <!-- <div>{{this.$store.state.adminLoggedIn}}</div> -->
     <table
+      v-show="this.$store.state.adminLoggedIn"
       id="settings-table"
       class="
         table table-light table-hover table-striped table-responsive-lg
@@ -17,9 +19,21 @@
         <tr>
           <th scope="row">Projector Settings</th>
           <td>
-            <b-form @submit="onSubmitProjector" @reset="onResetProjector" v-if="show">
-              <b-form-group id="input-group-1" label="Power:" v-slot="{ ariaDescribedby }">
-                <b-form-radio-group id="radio-1" v-model="formProjector.projectorPower" :aria-describedby="ariaDescribedby">
+            <b-form
+              @submit="onSubmitProjector"
+              @reset="onResetProjector"
+              v-if="show"
+            >
+              <b-form-group
+                id="input-group-1"
+                label="Power:"
+                v-slot="{ ariaDescribedby }"
+              >
+                <b-form-radio-group
+                  id="radio-1"
+                  v-model="formProjector.projectorPower"
+                  :aria-describedby="ariaDescribedby"
+                >
                   <b-form-radio value="On">On</b-form-radio>
                   <b-form-radio value="Off">Off</b-form-radio>
                 </b-form-radio-group>
@@ -60,18 +74,11 @@
               </b-button>
               <b-button
                 type="reset"
-                title="Remove Settings"
+                title="Clear Settings"
                 class="btn btn-danger me-3"
               >
-                <b-icon icon="trash"></b-icon>
+                Clear
               </b-button>
-              <!--button for a link -->
-              <input
-                type="button"
-                class="btn btn-info"
-                value="Login to class"
-                @click="check_query"
-              />
             </b-form>
           </td>
         </tr>
@@ -133,18 +140,11 @@
               </b-button>
               <b-button
                 type="reset"
-                title="Remove Settings"
+                title="Clear Settings"
                 class="btn btn-danger me-3"
               >
-                <b-icon icon="trash"></b-icon>
+                Clear
               </b-button>
-              <!--button for a link -->
-              <input
-                type="button"
-                class="btn btn-info"
-                value="Login to class"
-                @click="check_query"
-              />
             </b-form>
           </td>
         </tr>
@@ -204,18 +204,11 @@
               </b-button>
               <b-button
                 type="reset"
-                title="Remove Settings"
+                title="Clear Settings"
                 class="btn btn-danger me-3"
               >
-                <b-icon icon="trash"></b-icon>
+                Clear
               </b-button>
-              <!--button for a link -->
-              <input
-                type="button"
-                class="btn btn-info"
-                value="Login to class"
-                @click="check_query"
-              />
             </b-form>
           </td>
         </tr>
@@ -260,18 +253,11 @@
               </b-button>
               <b-button
                 type="reset"
-                title="Remove Settings"
+                title="Clear Settings"
                 class="btn btn-danger me-3"
               >
-                <b-icon icon="trash"></b-icon>
+                Clear
               </b-button>
-              <!--button for a link -->
-              <input
-                type="button"
-                class="btn btn-info"
-                value="Login to class"
-                @click="check_query"
-              />
             </b-form>
           </td>
         </tr>
@@ -303,18 +289,11 @@
               </b-button>
               <b-button
                 type="reset"
-                title="Remove Settings"
+                title="Clear Settings"
                 class="btn btn-danger me-3"
               >
-                <b-icon icon="trash"></b-icon>
+                Clear
               </b-button>
-              <!--button for a link -->
-              <input
-                type="button"
-                class="btn btn-info"
-                value="Login to class"
-                @click="check_query"
-              />
             </b-form>
           </td>
         </tr>
@@ -324,10 +303,16 @@
 </template>
 
 <script>
+/*
+* This script will get/place/delete information from multiple collections
+* in the MongoDB database. The purpose of this script is to implement CRUD.
+* This will allow the user to modify the database through the web app.
+*/
 import Vue from "vue";
 import bootstrapVue from "bootstrap-vue";
 import VueAxios from "vue-axios";
 import axios from "axios";
+//import ToastTester form '../components/ToastTester'
 Vue.use(VueAxios, axios);
 Vue.use(bootstrapVue);
 const db_URL_Professors = "http://localhost:4000/get/professors";
@@ -336,76 +321,133 @@ export default {
   props: {
     msg: String,
   },
+  // This is the format conversion from the form -> MongoDB database
   data() {
     return {
       formProjector: {
         projectorPower: [],
-        brightness: "",
-        contrast: "",
-        classroomAvailable: true,
+        brightness: 0,
+        contrast: 0,
       },
       formVideo: {
         videoPower: [],
         source: [],
-        cable: [],
-        classroomAvailable: true,
+      //  cable: [],
       },
       formCamera: {
         cameraPower: [],
         tracking: [],
-        zoom: "",
-        classroomAvailable: true,
+      //  zoom: "",
       },
       formMic: {
         micPower: "",
-        volume: "",
-        classroomAvailable: true,
+       // volume: "",
       },
       formRec: {
-        recPower: "",
-        classroomAvailable: true,
+//recPower: "",
       },
       show: true,
+      id: "",
     };
   },
-  // const relocate_home(){
-  //  location.href = "www.yoursite.com";
-  //},
+  // These methods will convert the form information to alter data in the database
   methods: {
     onSubmitProjector(event) {
       event.preventDefault();
-      //classRoomAvilable: "this class is available ",
-      // location.href = "http://localhost:8080/classroom?MAK-111-01",
-      //fullName: event.relocate_home() {
-      // return this.location.href +" " + this.db_URL_Professors +this.classRoomAvilable
-      alert(JSON.stringify(this.formProjector));
+      const projInfo = this.formProjector;
+      const patchURL = "http://localhost:4000/patch/professors/" + this.id;
+      // Builds the format for professors & projectors
+      const projObj = [
+        {
+          onoff: projInfo.projectorPower,
+          brightness: projInfo.brightness,
+          contrast: projInfo.contrast,
+        },
+        {
+          onoff: projInfo.projectorPower,
+          brightness: projInfo.brightness,
+          contrast: projInfo.contrast,
+        },
+        {
+          onoff: projInfo.projectorPower,
+          brightness: projInfo.brightness,
+          contrast: projInfo.contrast,
+        },
+        {
+          onoff: projInfo.projectorPower,
+          brightness: projInfo.brightness,
+          contrast: projInfo.contrast,
+        },
+      ];
+      // Patch updates the entry in the database
+      axios.patch(patchURL, {
+        "settings.projectors": projObj,
+      });
+      alert("Projector Settings Saved");
     },
     onSubmitVideo(event) {
       event.preventDefault();
-      alert(JSON.stringify(this.formVideo));
+      const videoInfo = this.formVideo;
+      const patchURL = "http://localhost:4000/patch/professors/" + this.id;
+      // Builds the format for professors & video source
+      const videoObj = {
+        onoff: videoInfo.videoPower,
+        source: videoInfo.source,
+        cable: videoInfo.cable,
+      };
+      // Patch updates the entry in the database
+      axios.patch(patchURL, {
+        "settings.video": videoObj,
+      });
+      alert("Video Settings Saved");
     },
     onSubmitCamera(event) {
       event.preventDefault();
-      event.relocate_home();
-      alert(JSON.stringify(this.formCamera));
+      const cameraInfo = this.formCamera;
+      const patchURL = "http://localhost:4000/patch/professors/" + this.id;
+      // Builds the format for professors & cameras
+      const cameraObj = {
+        onoff: cameraInfo.cameraPower,
+        tracking: cameraInfo.tracking,
+        zoom: cameraInfo.zoom,
+      };
+      // Patch updates the entry in the database
+      axios.patch(patchURL, {
+        "settings.camera": cameraObj,
+      });
+      alert("Camera Settings Saved");
     },
     onSubmitMic(event) {
       event.preventDefault();
-      event.relocate_home();
-      alert(JSON.stringify(this.formMic));
+      const micInfo = this.formMic;
+      const patchURL = "http://localhost:4000/patch/professors/" + this.id;
+      // Builds the format for professors & microphones
+      const micObj = {
+        onoff: micInfo.micPower,
+        volume: micInfo.volume,
+      };
+      // Patch updates the entry in the database
+      axios.patch(patchURL, {
+        "settings.microphone": micObj,
+      });
+      alert("Microphone Settings Saved");
     },
     onSubmitRec(event) {
       event.preventDefault();
-      event.relocate_home();
-      alert(JSON.string(this.formRec));
+      const recInfo = this.formRec;
+      const patchURL = "http://localhost:4000/patch/professors/" + this.id;
+      // Builds the format for professors & Recorder
+      const recObj = {
+        onoff: recInfo.recPower,
+      };
+      // Patch updates the entry in the database
+      axios.patch(patchURL, {
+        "settings.recorder": recObj,
+      });
+      alert("Recorder Settings Saved");
     },
-    check_query(){
-        var room=this.$route.query.room
-        console.log(room);
-      },
     onResetProjector(event) {
       event.preventDefault();
-
       // Reset our form values
       this.formProjector.projectorPower = [];
       this.formProjector.brightness = "";
@@ -462,15 +504,37 @@ export default {
       });
     },
   },
-  async mounted() {
+  // created is used when fetching data
+  async created() {
     var resp = await axios.get(db_URL_Professors);
-    var professor = [];
-    professor = resp.data;
-    var projectors = [];
-    projectors = professor[0].settings.projectors;
-    this.formProjector.projectorPower = projectors[0].oldonoff;
-    this.formProjector.brightness = projectors[0].oldbrightness;
-    this.formProjector.contrast = projectors[0].oldcontrast;
+    this.$gapi.currentUser().then((profile) => {
+      var professors = [];
+      professors = resp.data;
+      for (let element of professors) {
+        if (element.email === profile.email) {
+          console.log(element);
+          this.id = element._id;
+          var projectors = [];
+          projectors = element.settings.projectors;
+          var video = element.settings.video;
+          var camera = element.settings.camera;
+          var mic = element.settings.microphone;
+          var rec = element.settings.recorder;
+          this.formProjector.projectorPower = projectors[0].onoff;
+          this.formProjector.brightness = projectors[0].brightness;
+          this.formProjector.contrast = projectors[0].contrast;
+          this.formVideo.videoPower = video.onoff;
+          this.formVideo.source = video.source;
+          this.formVideo.cable = video.cable;
+          this.formCamera.cameraPower = camera.onoff;
+          this.formCamera.tracking = camera.tracking;
+          this.formCamera.zoom = camera.zoom;
+          this.formMic.micPower = mic.onoff;
+          this.formMic.volume = mic.volume;
+          this.formRec.recPower = rec.onoff;
+        }
+      }
+    });
   },
 };
 </script>
