@@ -20,6 +20,7 @@ export default {
       dbemail: "",
     };
   },
+  methods: {},
   async created() {
     // On creation, check signed in status and set store state
     var resp = await axios.get(db_URL_Professors);
@@ -40,10 +41,21 @@ export default {
             if (element.permission === 0) {
               this.$store.commit("adminLogIn");
               if (userRoom === room) {
-                console.log("User is in the room. Apply settings.")
+                console.log("User is in the room. Apply settings.");
+                this.$bvToast.toast('User is in the room. Applied settings.', {
+                  title: "BootstrapVue Toast",
+                  autoHideDelay: 5000,
+                  appendToast: true,
+                });
               } else {
                 // alert("User is not at the room, so settings weren't applied.");
-                console.log("User is not in the room. Did not apply settings.")
+                console.log("User is not in the room. Did not apply settings.");
+                this.toastCount++;
+                this.$bvToast.toast('User is not in the room. Did not apply settings.', {
+                  title: "BootstrapVue Toast",
+                  autoHideDelay: 5000,
+                  appendToast: true,
+                });
               }
               break;
             }

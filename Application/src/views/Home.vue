@@ -1,7 +1,6 @@
 <template>
   <div class="d-flex flex-column">
     <NavBar msg="GVSU Smart Classrooms" />
-    <ToastTester/>
     <div class="container p-4 mt-4 bg-gradient bg-light">
       <div class="row row-cols-1 row-cols-md-2 g-4 justify-content-center">
         <div class="col">
@@ -61,15 +60,12 @@
 // @ is an alias to /src
 import NavBar from "@/components/NavBar.vue";
 import Card from "@/components/Card.vue";
-import ToastTester from "@/components/ToastTester.vue";
-
 
 export default {
   name: "Home",
   components: {
     NavBar,
-    Card,
-    ToastTester
+    Card
   },
 };
 </script>
