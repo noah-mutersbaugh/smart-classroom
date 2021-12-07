@@ -9,6 +9,9 @@
         p-5
       "
     >
+    <div>
+     <b-button @click="showToast">lgot</b-button>
+     </div>
       <thead>
         <tr>
           <th scope="col" style="width: 50%">Settings</th>
@@ -312,11 +315,6 @@ import Vue from "vue";
 import bootstrapVue from "bootstrap-vue";
 import VueAxios from "vue-axios";
 import axios from "axios";
-<<<<<<< HEAD
-//import ToastTester form '../components/ToastTester'
-=======
-
->>>>>>> 6271ba8459ea6e53ed4e1525d5eb2d33aa7b5ad5
 Vue.use(VueAxios, axios);
 Vue.use(bootstrapVue);
 const db_URL_Professors = "http://localhost:4000/get/professors";
@@ -332,26 +330,6 @@ export default {
         projectorPower: [],
         brightness: 0,
         contrast: 0,
-<<<<<<< HEAD
-      },
-      formVideo: {
-        videoPower: [],
-        source: [],
-      //  cable: [],
-      },
-      formCamera: {
-        cameraPower: [],
-        tracking: [],
-      //  zoom: "",
-      },
-      formMic: {
-        micPower: "",
-       // volume: "",
-      },
-      formRec: {
-//recPower: "",
-      },
-=======
       },
       formVideo: {
         videoPower: [],
@@ -370,7 +348,6 @@ export default {
       formRec: {
         recPower: "",
       },
->>>>>>> 6271ba8459ea6e53ed4e1525d5eb2d33aa7b5ad5
       show: true,
       id: "",
     };
@@ -470,15 +447,6 @@ export default {
         "settings.recorder": recObj,
       });
       alert("Recorder Settings Saved");
-<<<<<<< HEAD
-    },
-    onResetProjector(event) {
-      event.preventDefault();
-      // Reset our form values
-      this.formProjector.projectorPower = [];
-      this.formProjector.brightness = "";
-      this.formProjector.contrast = "";
-=======
     },
     onResetProjector(event) {
       event.preventDefault();
@@ -498,28 +466,12 @@ export default {
       this.formVideo.videoPower = [];
       this.formVideo.source = [];
       this.formVideo.cable = [];
->>>>>>> 6271ba8459ea6e53ed4e1525d5eb2d33aa7b5ad5
       // Trick to reset/clear native browser form validation state
       this.show = false;
       this.$nextTick(() => {
         this.show = true;
       });
     },
-<<<<<<< HEAD
-    onResetVideo(event) {
-      event.preventDefault();
-      // Reset our form values
-      this.formVideo.videoPower = [];
-      this.formVideo.source = [];
-      this.formVideo.cable = [];
-      // Trick to reset/clear native browser form validation state
-      this.show = false;
-      this.$nextTick(() => {
-        this.show = true;
-      });
-    },
-=======
->>>>>>> 6271ba8459ea6e53ed4e1525d5eb2d33aa7b5ad5
     onResetCamera(event) {
       event.preventDefault();
       // Reset our form values
@@ -553,14 +505,43 @@ export default {
         this.show = true;
       });
     },
+    showToast() {
+        // Use a shorter name for this.$createElement
+        const h = this.$createElement
+        // Increment the toast count
+        this.count++
+        // Create the message
+        const vNodesMsg = h(
+          'p',
+          { class: ['text-center', 'mb-0'] },
+          [
+            h('b-spinner', { props: { type: 'grow', small: true } }),
+            ' Flashy ',
+            h('strong', 'toast'),
+            ` message #${this.count} `,
+            h('b-spinner', { props: { type: 'grow', small: true } })
+          ]
+        )
+        // Create the title
+        const vNodesTitle = h(
+          'div',
+          { class: ['d-flex', 'flex-grow-1', 'align-items-baseline', 'mr-2'] },
+          [
+            h('strong', { class: 'mr-2' }, 'The Title'),
+            h('small', { class: 'ml-auto text-italics' }, '5 minutes ago')
+          ]
+        )
+        // Pass the VNodes as an array for message and title
+        this.$bvToast.toast([vNodesMsg], {
+          title: [vNodesTitle],
+          solid: true,
+          variant: 'info'
+        })
+      }
   },
   // created is used when fetching data
   async created() {
     var resp = await axios.get(db_URL_Professors);
-<<<<<<< HEAD
-=======
-
->>>>>>> 6271ba8459ea6e53ed4e1525d5eb2d33aa7b5ad5
     this.$gapi.currentUser().then((profile) => {
       var professors = [];
       professors = resp.data;

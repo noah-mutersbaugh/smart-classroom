@@ -22,6 +22,7 @@
               @reset="onResetProfessor"
               v-if="show"
             >
+            
               <b-form-group
                 id="input-group-1"
                 label="Name:"
@@ -40,7 +41,8 @@
                 id="input-group-2"
                 label="Permission:"
                 label-for="input-2"
-              >
+              >      
+              
                 <b-form-input
                   id="input-2"
                   v-model="formProfessor.permission"
@@ -48,6 +50,20 @@
                   required
                 ></b-form-input>
               </b-form-group>
+               <div>
+               <b-button @click="$bvToast.show.permission('placeholder')">Show toast</b-button>
+              <b-toast id="my-toast" variant="warning" solid>
+                <div id= "toast-title">
+                  <div class="d-flex flex-grow-1 align-items-baseline">
+                    <b-img blank blank-color="#ff5555" class="mr-2" width="12" height="12"></b-img>
+                    <strong class="mr-auto">Notice!</strong>
+                    <small class="text-muted mr-2">42 seconds ago</small>
+                  </div>
+                </div>
+      This is the content of the toast.
+      It is short and to the point.
+    </b-toast>
+  </div>
 
               <b-form-group
                 id="input-group-3"

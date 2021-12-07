@@ -1,67 +1,56 @@
 <template>
   <div>
-    <b-button @click="makeToast()">Show Toast</b-button>
-    <b-button @click="makeToast(true)">Show Toast (appended)</b-button>
+    <b-button @click="showToast">Show Toast with custom content</b-button>
   </div>
 </template>
 
 <script>
-<<<<<<< HEAD
-import {createApp} from 'vue';
-import VueToast from 'vue-toast-notification';
+//import {createApp} from 'vue';
+//import VueToast from 'vue-toast-notification';
 // Import one of the available themes
 //import 'vue-toast-notification/dist/theme-default.css';
 import 'vue-toast-notification/dist/theme-sugar.css';
-const app = createApp({});
-app.use(VueToast);
-app.mount('#app');
-=======
->>>>>>> 6271ba8459ea6e53ed4e1525d5eb2d33aa7b5ad5
-export default {
-  data() {
-    return {
-      toastCount: 0,
-    };
-  },
-  methods: {
-    makeToast(append = false) {
-      this.toastCount++;
-      this.$bvToast.toast(`This is toast number ${this.toastCount}`, {
-        title: "BootstrapVue Toast",
-<<<<<<< HEAD
-        message: 'Something went wrong!',
-         type: 'error',
-        autoHideDelay: 5000000,
-        appendToast: append,
-      });
-      this.$bvToast.scucess(`this is goog ${this.toastCount}`, {
-        
-        message: 'everything is good !',
-         type: 'error',
-        autoHideDelay: 5000000,
-        appendToast: append,
-        postion: 'top',
-      });
-    },
-  },
-};
 
-=======
-        autoHideDelay: 50000,
-        appendToast: append,
-      });
+  export default {
+    data() {
+      return {
+        count: 0
+      }
     },
-  },
-};
->>>>>>> 6271ba8459ea6e53ed4e1525d5eb2d33aa7b5ad5
+    methods: {
+      showToast() {
+        // Use a shorter name for this.$createElement
+        const h = this.$createElement
+        // Increment the toast count
+        this.count++
+        // Create the message
+        const vNodesMsg = h(
+          'p',
+          { class: ['text-center', 'mb-0'] },
+          [
+            h('b-spinner', { props: { type: 'grow', small: true } }),
+            ' Flashy ',
+            h('strong', 'toast'),
+            ` message #${this.count} `,
+            h('b-spinner', { props: { type: 'grow', small: true } })
+          ]
+        )
+        // Create the title
+        const vNodesTitle = h(
+          'div',
+          { class: ['d-flex', 'flex-grow-1', 'align-items-baseline', 'mr-2'] },
+          [
+            h('strong', { class: 'mr-2' }, 'The Title'),
+            h('small', { class: 'ml-auto text-italics' }, '5 minutes ago')
+          ]
+        )
+        // Pass the VNodes as an array for message and title
+        this.$bvToast.toast([vNodesMsg], {
+          title: [vNodesTitle],
+          solid: true,
+          variant: 'info'
+        })
+      }
+    }
+ }
 </script>
-
-<style scoped>
-.b-toast {
-  z-index: 100;
-}
-<<<<<<< HEAD
-</style>
-=======
-</style>
->>>>>>> 6271ba8459ea6e53ed4e1525d5eb2d33aa7b5ad5
