@@ -6,9 +6,7 @@
     >
       <thead>
         <tr>
-          <th>ID</th>
-          <th>Abbreviation</th>
-          <th>Room Number</th>
+          <th>Room</th>
           <th>Size</th>
           <th>Tech</th>
           <th>Layouts</th>
@@ -17,13 +15,13 @@
       </thead>
       <tbody>
         <tr v-for="message in messages" v-bind:key="message._id">
-          <td>{{ message._id }}</td>
-          <td>{{ message.buildingabbr }}</td>
-          <td>{{ message.num }}</td>
+          <td>{{ message.buildingabbr }} {{ message.num }}</td>
           <td>{{ message.size }}</td>
           <td>
-            <ul v-for="{ id, name, qty } in message.tech" v-bind:key="id">
-              <li>{{ qty }} {{ name }}</li>
+            <ul>
+              <li v-for="{ id, name, qty } in message.tech" v-bind:key="id">
+                {{ qty }} {{ name }}
+              </li>
             </ul>
           </td>
           <td>
@@ -93,5 +91,14 @@ export default {
 thead {
   background-color: #0065a4;
   color: white;
+}
+
+ul {
+  padding-left: 0rem;
+}
+
+li {
+  list-style-type: none;
+  padding-bottom: .4rem;
 }
 </style>
