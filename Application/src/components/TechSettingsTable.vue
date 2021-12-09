@@ -377,7 +377,11 @@ export default {
       axios.patch(patchURL, {
         "settings.projectors": projObj,
       });
-      alert("Projector Settings Saved");
+      this.$bvToast.toast("Projector Settings Saved", {
+        title: "BootstrapVue Toast",
+        autoHideDelay: 5000,
+        appendToast: true,
+      });
     },
     onSubmitVideo(event) {
       event.preventDefault();
@@ -392,7 +396,11 @@ export default {
       axios.patch(patchURL, {
         "settings.video": videoObj,
       });
-      alert("Video Settings Saved");
+      this.$bvToast.toast("Video settings saved.", {
+        title: "BootstrapVue Toast",
+        autoHideDelay: 5000,
+        appendToast: true,
+      });
     },
     onSubmitCamera(event) {
       event.preventDefault();
@@ -407,7 +415,11 @@ export default {
       axios.patch(patchURL, {
         "settings.camera": cameraObj,
       });
-      alert("Camera Settings Saved");
+      this.$bvToast.toast("Camera settings saved.", {
+        title: "BootstrapVue Toast",
+        autoHideDelay: 5000,
+        appendToast: true,
+      });
     },
     onSubmitMic(event) {
       event.preventDefault();
@@ -421,7 +433,11 @@ export default {
       axios.patch(patchURL, {
         "settings.microphone": micObj,
       });
-      alert("Microphone Settings Saved");
+      this.$bvToast.toast("Microphone Settings Saved", {
+        title: "BootstrapVue Toast",
+        autoHideDelay: 5000,
+        appendToast: true,
+      });
     },
     onSubmitRec(event) {
       event.preventDefault();
@@ -434,7 +450,11 @@ export default {
       axios.patch(patchURL, {
         "settings.recorder": recObj,
       });
-      alert("Recorder Settings Saved");
+      this.$bvToast.toast("Recorder settings saved.", {
+        title: "BootstrapVue Toast",
+        autoHideDelay: 5000,
+        appendToast: true,
+      });
     },
     onResetProjector(event) {
       event.preventDefault();
@@ -446,6 +466,11 @@ export default {
       this.show = false;
       this.$nextTick(() => {
         this.show = true;
+      });
+      this.$bvToast.toast("Projector settings cleared.", {
+        title: "BootstrapVue Toast",
+        autoHideDelay: 5000,
+        appendToast: true,
       });
     },
     onResetVideo(event) {
@@ -459,6 +484,11 @@ export default {
       this.$nextTick(() => {
         this.show = true;
       });
+      this.$bvToast.toast("Video settings cleared.", {
+        title: "BootstrapVue Toast",
+        autoHideDelay: 5000,
+        appendToast: true,
+      });
     },
     onResetCamera(event) {
       event.preventDefault();
@@ -471,6 +501,11 @@ export default {
       this.$nextTick(() => {
         this.show = true;
       });
+      this.$bvToast.toast("Camera settings cleared.", {
+        title: "BootstrapVue Toast",
+        autoHideDelay: 5000,
+        appendToast: true,
+      });
     },
     onResetMic(event) {
       event.preventDefault();
@@ -482,6 +517,11 @@ export default {
       this.$nextTick(() => {
         this.show = true;
       });
+      this.$bvToast.toast("Microphone settings cleared.", {
+        title: "BootstrapVue Toast",
+        autoHideDelay: 5000,
+        appendToast: true,
+      });
     },
     onResetRec(event) {
       event.preventDefault();
@@ -491,6 +531,11 @@ export default {
       this.show = false;
       this.$nextTick(() => {
         this.show = true;
+      });
+      this.$bvToast.toast("Recorder settings cleared.", {
+        title: "BootstrapVue Toast",
+        autoHideDelay: 5000,
+        appendToast: true,
       });
     },
   },

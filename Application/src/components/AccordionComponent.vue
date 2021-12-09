@@ -6,9 +6,12 @@
         <b-button class="accordion-button" block v-b-toggle="tech._id" variant="info">{{ tech.name }}</b-button>
       </b-card-header>
       <b-collapse v-bind:id="tech._id" accordion="my-accordion" role="tabpanel">
-        <b-card-body>
-          <b-card-text class="accordion-text">{{ tech.description }}</b-card-text>
-        </b-card-body>
+          <b-card :img-src="tech.image_url" img-right>
+            <b-card-text class="accordion-text">{{ tech.description }}</b-card-text>
+            <b-card-text class="accordion-text">{{ tech.resolution }}</b-card-text>
+            <b-card-text class="accordion-text">{{ tech.framerate }}</b-card-text>
+            <a :href="tech.product_url">Link to {{ tech.name }}</a>
+          </b-card>
       </b-collapse>
     </b-card>
   </div>
@@ -28,14 +31,14 @@ const db_URL = "http://localhost:4000/get/tech";
 
 export default {
     data: function() {
-        return{
+        return {
             technologies: []
         };
     },
     async mounted() {
         const resp = await axios.get(db_URL);
-        
         this.technologies = resp.data;
+        console.log(this.technologies);
     },
 }
 </script>
@@ -52,7 +55,6 @@ export default {
     padding: .625em;
 }
 .accordion-text {
-    white-space: pre;
     text-align: left;
     padding: .625em;
 }
@@ -84,5 +86,9 @@ export default {
 .accordion-button:focus {
     outline: #0065A4 solid 3px !important;
     outline-offset: 6px;
+}
+
+.card-img-right {
+    max-height: 15rem;
 }
 </style>
