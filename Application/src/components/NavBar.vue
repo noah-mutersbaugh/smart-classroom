@@ -45,7 +45,8 @@
           <b-nav-item to="/inventory">Inventory</b-nav-item>
           <b-nav-item to="/tech-specs">Tech Specs</b-nav-item>
           <b-nav-item v-show="this.$store.state.loggedIn" to="/tech-settings">Tech Settings</b-nav-item>
-          <b-nav-item v-show="this.$store.state.admin" to="/admin">Admin</b-nav-item>
+          <!-- <b-nav-item v-show="this.$store.state.admin" to="/admin">Admin</b-nav-item> -->
+          <b-nav-item to="/admin">Admin</b-nav-item>
           <b-nav-item to="/map">Map</b-nav-item>
           <b-nav-item to="/faq">FAQ</b-nav-item>
           <b-nav-item to="/feedback">Feedback</b-nav-item>
